@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Área de Virtualización · UIFCE</title>
+  <meta name="description" content="Espacio del área de Virtualización de la Unidad de Informática de la Facultad de Ciencias Económicas — UNAL." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="assets/uifcito/uifcito-feliz.png" />
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="nav" id="nav">
+    <a href="#inicio" class="nav__brand">
+      <img src="assets/logos/logo-principal.png" alt="UIFCE" class="nav__logo" />
+      <span class="nav__area">Virtualización</span>
+    </a>
+    <button class="nav__toggle" id="navToggle" aria-label="Abrir menú">☰</button>
+    <nav class="nav__links" id="navLinks">
+      <a href="#proyectos">Proyectos</a>
+      <a href="#genially">Genially</a>
+      <a href="#herramientas">Herramientas &amp; IA</a>
+      <a href="#recursos">Recursos</a>
+      <a href="#guias">Guías</a>
+    </nav>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="inicio">
+    <div class="hero__glow"></div>
+    <div class="hero__content">
+      <span class="hero__badge">Semestre <strong id="heroSemestre">—</strong></span>
+      <h1 class="hero__title" id="heroTitulo">Área de Virtualización</h1>
+      <p class="hero__subtitle" id="heroSubtitulo"></p>
+      <p class="hero__desc" id="heroDesc"></p>
+      <div class="hero__cta">
+        <a href="#proyectos" class="btn btn--primary">Ver proyectos</a>
+        <a href="https://docs.google.com/document/d/1d4DcUWD8yY-t4QPceg0EvUQhM8YOXi9bu39DvisUFBc/edit?usp=drive_link" class="btn btn--primary" target="_blank" rel="noopener">Primeros pasos</a>
+        <a href="#recursos" class="btn btn--ghost">Kit de marca</a>
+      </div>
+    </div>
+    <div class="hero__mascot">
+      <img src="assets/uifcito/uifcito-bienvenida.gif" alt="Uifcito dando la bienvenida" id="heroUifcito" />
+    </div>
+  </section>
+
+  <!-- ============ LÍNEA DE TIEMPO ============ -->
+  <section class="section section--tight" id="timeline">
+    <div class="section__head">
+      <h2>Nuestra línea de tiempo</h2>
+      <p>Filtra los proyectos por semestre para ver cómo ha evolucionado el área.</p>
+    </div>
+    <div class="card timeline__intro">
+      <p>
+        El Área de Virtualización nace en el semestre 2026-1 como respuesta a la necesidad de estandarizar
+        la producción audiovisual y didáctica del material de e-learning de la Unidad de Informática.
+        Su creación busca consolidar criterios técnicos y pedagógicos comunes que den soporte a tres frentes:
+        los Cursos Libres ofrecidos por la Facultad, las capacitaciones administrativas e internas de la
+        Unidad, y la modernización de los cursos ya existentes de la Facultad de Ciencias Económicas.
+        De esta manera, el área centraliza el diseño instruccional, la producción multimedia y la
+        gamificación de contenidos, sentando una base reproducible para los equipos de monitores que
+        se sumen en semestres posteriores.
+      </p>
+    </div>
+    <div class="timeline" id="timelineTrack"></div>
+  </section>
+
+  <!-- ============ PROYECTOS ============ -->
+  <section class="section" id="proyectos">
+    <div class="section__head">
+      <h2>Proyectos del área</h2>
+      <p>Lo que se ha trabajado y se trabaja. Cada tarjeta enlaza a sus recursos.</p>
+    </div>
+    <div class="filters" id="filtrosEstado">
+      <button class="chip chip--active" data-estado="todos">Todos</button>
+      <button class="chip" data-estado="en-curso">En curso</button>
+      <button class="chip" data-estado="finalizado">Finalizados</button>
+      <button class="chip" data-estado="pendiente">Pendientes</button>
+    </div>
+    <div class="grid grid--cards" id="proyectosGrid"></div>
+  </section>
+
+  <!-- ============ GENIALLY ============ -->
+  <section class="section section--alt" id="genially">
+    <div class="section__head">
+      <h2>Empalme Genially</h2>
+      <p>Resumen del manual de uso para arrancar rápido con la herramienta.</p>
+    </div>
+    <div class="genially">
+      <div class="genially__intro card">
+        <p id="geniallyIntro"></p>
+        <div class="card__actions" id="geniallyEnlaces"></div>
+      </div>
+
+      <h3 class="subhead">Tipos de diseño y su uso en la UIFCE</h3>
+      <div class="grid grid--tipos" id="geniallyTipos"></div>
+
+      <div class="genially__cols">
+        <div>
+          <h3 class="subhead">Interactividad básica</h3>
+          <ul class="list" id="geniallyInteract"></ul>
+        </div>
+        <div class="card card--highlight" id="geniallyTecnica"></div>
+      </div>
+
+      <h3 class="subhead">Buenas prácticas</h3>
+      <div class="grid grid--practicas" id="geniallyPracticas"></div>
+
+      <h3 class="subhead">Recursos creados en Genially</h3>
+      <div class="grid grid--tipos" id="geniallyRecursos"></div>
+    </div>
+  </section>
+
+  <!-- ============ HERRAMIENTAS E IA ============ -->
+  <section class="section" id="herramientas">
+    <div class="section__head">
+      <h2>Herramientas e IA recomendadas</h2>
+      <p>Organizadas por tarea: busca lo que necesitas hacer, no el nombre de la app.</p>
+    </div>
+    <div class="grid grid--tools" id="herramientasGrid"></div>
+  </section>
+
+  <!-- ============ RECURSOS ============ -->
+  <section class="section section--alt" id="recursos">
+    <div class="section__head">
+      <h2>Recursos de marca</h2>
+      <p>Logos de la UIFCE y estados de Uifcito. Haz clic para descargar.</p>
+    </div>
+
+    <h3 class="subhead">Logos UIFCE</h3>
+    <div class="grid grid--gallery" id="logosGrid"></div>
+
+    <h3 class="subhead">Uifcito · expresiones</h3>
+    <div class="grid grid--gallery" id="uifcitoGrid"></div>
+
+    <h3 class="subhead">Uifcito · animaciones</h3>
+    <div class="grid grid--gallery" id="uifcitoAnimGrid"></div>
+
+    <h3 class="subhead">Tipografía institucional</h3>
+    <div id="fuentesWrap"></div>
+
+    <h3 class="subhead">Paleta de colores</h3>
+    <div class="paleta" id="paletaGrid"></div>
+  </section>
+
+  <!-- ============ GUÍAS ============ -->
+  <section class="section" id="guias">
+    <div class="section__head">
+      <h2>Guías y plantillas</h2>
+      <p>Material de referencia para no reinventar cada semestre.</p>
+    </div>
+    <div class="grid grid--guias" id="guiasGrid"></div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="footer">
+    <img src="assets/institucional/franja.png" alt="Facultad de Ciencias Económicas · Universidad Nacional de Colombia" class="footer__franja" />
+    <div class="footer__info" id="footerInfo"></div>
+    <p class="footer__meta">Área de Virtualización · Página de empalme para monitores.</p>
+  </footer>
+
+  <a href="#inicio" class="totop" id="toTop" aria-label="Volver arriba">↑</a>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

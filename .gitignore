@@ -1,0 +1,21 @@
+# ============================================================
+#  Carpeta fuente del semestre (1.9 GB: videos, .story, .docx)
+#  NO se sube al repo: excede límites de GitHub y no la necesita
+#  la aplicación web. Se conserva solo en local / Drive.
+# ============================================================
+/7. Virtualización/
+
+# Archivos temporales del sistema operativo
+Thumbs.db
+ehthumbs.db
+desktop.ini
+.DS_Store
+
+# Editores / IDE
+.vscode/
+.idea/
+*.swp
+
+# Logs y temporales
+*.log
+*.tmp
