@@ -19,8 +19,11 @@ const AREA = {
   tituloHero: "Área de Virtualización",
   subtituloHero:
     "Unidad de Informática · Facultad de Ciencias Económicas · Universidad Nacional de Colombia",
-  descripcionHero:
-    "Espacio donde diseñamos, actualizamos y estandarizamos los contenidos educativos virtuales de la Facultad. Esta página reúne lo que hemos construido para que cada nuevo equipo de monitores pueda empalmar rápido y seguir avanzando.",
+  descripcionHero: [
+    "Diseño, actualización y estandarización de los contenidos e-learning de la Unidad de Informática y la Facultad de Ciencias Económicas.",
+    "Repositorio centralizado de los recursos, plantillas y lineamientos desarrollados por el área.",
+    "Soporte a la continuidad del proceso de empalme entre los sucesivos equipos de monitores.",
+  ],
 };
 
 /* --------------------------------------------------------------------------
@@ -33,19 +36,101 @@ const SEMESTRES = [
 ];
 
 /* --------------------------------------------------------------------------
+   2b. LÍNEAS (según el Estándar de nomenclatura de cursos VA_[LINEA]_[NIVEL]_...)
+   Cada línea pertenece a una categoria: "herramienta" (software) o "disciplina"
+   (área temática). Úsalas en el campo "linea" de cada proyecto/curso más abajo.
+   Para agregar una línea nueva: escoge una sigla corta (3-4 letras) y agrégala aquí.
+   -------------------------------------------------------------------------- */
+const LINEAS = {
+  // Herramientas y software (tabla oficial del estándar)
+  EXC: { nombre: "Excel", categoria: "herramienta" },
+  PBI: { nombre: "Power BI", categoria: "herramienta" },
+  SIG: { nombre: "SIIGO", categoria: "herramienta" },
+  ACC: { nombre: "Access", categoria: "herramienta" },
+  LAT: { nombre: "LaTeX", categoria: "herramienta" },
+  PYT: { nombre: "Python", categoria: "herramienta" },
+  STT: { nombre: "Stata", categoria: "herramienta" },
+  WOR: { nombre: "Word", categoria: "herramienta" },
+  PPT: { nombre: "PowerPoint", categoria: "herramienta" },
+  RSP: { nombre: "RStudio", categoria: "herramienta" },
+  // Herramientas internas del área (extensión no oficial todavía, ver punto 10.3 del estándar)
+  ART: { nombre: "Articulate 360", categoria: "herramienta" },
+  GEN: { nombre: "Genially", categoria: "herramienta" },
+  MDL: { nombre: "Moodle", categoria: "herramienta" },
+  // Áreas temáticas o disciplinares (tabla oficial del estándar)
+  FIN: { nombre: "Finanzas", categoria: "disciplina" },
+  ECO: { nombre: "Econometría", categoria: "disciplina" },
+  EST: { nombre: "Estadística", categoria: "disciplina" },
+  CON: { nombre: "Contabilidad", categoria: "disciplina" },
+  ADM: { nombre: "Administración", categoria: "disciplina" },
+  DAT: { nombre: "Análisis de datos", categoria: "disciplina" },
+  INV: { nombre: "Investigación", categoria: "disciplina" },
+  MAT: { nombre: "Matemáticas", categoria: "disciplina" },
+  MER: { nombre: "Mercadeo", categoria: "disciplina" },
+  PRO: { nombre: "Proyectos", categoria: "disciplina" },
+  COS: { nombre: "Costos", categoria: "disciplina" },
+  PRE: { nombre: "Presupuesto", categoria: "disciplina" },
+};
+
+/* --------------------------------------------------------------------------
    3. PROYECTOS
    ----------------------------------------------------------------------------
    estado: "finalizado" | "en-curso" | "pendiente"
+   linea:  sigla de LINEAS (arriba) -> ej. "EXC". Opcional: déjalo sin escribir
+           si el proyecto no corresponde a una herramienta o disciplina puntual
+           (p. ej. proyectos de marca, investigación general, apoyo académico).
    enlaces: botones estándar (drive, moodle, genially, documento, manual, plantilla).
    extras:  botones con texto personalizado -> [{ texto, icono, url }]
    Los enlaces vacíos "" no muestran botón. Rellénalos cuando los tengas.
    -------------------------------------------------------------------------- */
 const PROYECTOS = [
   {
+    id: "guia-primeros-pasos",
+    nombre: "Guía de Primeros Pasos en Virtualización Académica",
+    semestre: "2026-1",
+    estado: "finalizado",
+    icono: "🚀",
+    encargados: ["Equipo Virtualización"],
+    descripcion:
+      "Documento de referencia introductorio para el área de Virtualización Académica: explica el porqué del área, su filosofía de trabajo, el flujo de 7 etapas para virtualizar un curso, la estructura del Guion Maestro, los roles del equipo y las buenas prácticas metodológicas. Es el punto de entrada obligatorio para cualquier persona que se integre al área.",
+    entregables: [
+      "Guía completa de primeros pasos (documento maestro)",
+      "Flujo de 7 etapas de virtualización",
+      "Definición de roles (Monitor Máster, Monitores Junior, articulación con otras áreas UIFCE)",
+      "Buenas prácticas metodológicas y glosario básico",
+    ],
+    enlaces: {
+      documento: "https://docs.google.com/document/d/1d4DcUWD8yY-t4QPceg0EvUQhM8YOXi9bu39DvisUFBc/edit?usp=drive_link",
+    },
+  },
+  {
+    id: "material-existente",
+    nombre: "Creación del dominio y estándar de carpetas del área",
+    semestre: "2026-1",
+    estado: "finalizado",
+    icono: "🗄️",
+    encargados: ["Equipo Virtualización"],
+    descripcion:
+      "Diseño e implementación de la carpeta raíz institucional \"Virtualizacion_Academica\" en Google Drive, que centraliza la gestión, documentación, producción, recursos reutilizables y archivo histórico del área. A partir de este dominio se definió un estándar oficial de organización y nomenclatura —de carpetas, cursos y archivos— que garantiza trazabilidad, escalabilidad y continuidad del trabajo entre los distintos equipos de monitores.",
+    entregables: [
+      "Carpeta raíz \"Virtualizacion_Academica\" con sus 7 carpetas principales (Gestión del área, Guías y documentación, Plantillas maestras, Cursos en proceso, Cursos finalizados, Recursos reutilizables, Histórico)",
+      "Documento del Estándar de Estructura de Carpetas (versión final)",
+      "Norma de nomenclatura de carpetas, cursos y archivos",
+      "Organización del material existente dentro del nuevo dominio",
+    ],
+    enlaces: {
+      drive: "https://drive.google.com/drive/folders/1MrKrjBXYNJtayEXDA8aOCTmcbR9xrNif?usp=drive_link",
+    },
+    extras: [
+      { texto: "Organización de carpetas", icono: "🗂️", url: "https://drive.google.com/drive/folders/1C44YCShWIBv5o6pMvCs9CHV1DB0_fyGO?usp=drive_link" },
+    ],
+  },
+  {
     id: "articulate",
     nombre: "Capacitación y empalme en Articulate",
     semestre: "2026-1",
     estado: "finalizado",
+    linea: "ART",
     icono: "🎓",
     encargados: ["Juan Laguna", "Ana Sofía Cardozo"],
     descripcion:
@@ -65,6 +150,7 @@ const PROYECTOS = [
     nombre: "Actualización Cursos Libres de Excel",
     semestre: "2026-1",
     estado: "en-curso",
+    linea: "EXC",
     icono: "📊",
     encargados: ["César D."],
     descripcion:
@@ -89,10 +175,11 @@ const PROYECTOS = [
     nombre: "Finalización CL Introducción a Python y R",
     semestre: "2026-1",
     estado: "en-curso",
+    linea: "PYT",
     icono: "🐍",
-    encargados: ["Ana Sofía Cardozo"],
+    encargados: ["Juan Esteban Laguna"],
     descripcion:
-      "Cierre, despliegue y remisión del Curso Libre de Introducción a la Programación en Python y R: lecciones faltantes, Moodle funcional, banco de preguntas y Genially interactivo de apoyo.",
+      "Renovación integral del curso de Introducción a la Programación con Python y R, un proyecto con varios semestres de retraso. Esta iniciativa consistió en el diseño desde cero de sus contenidos y metodologías, aplicando los nuevos formatos y plantillas del área para garantizar un material de estudio moderno, visualmente coherente y de alta calidad académica.",
     entregables: [
       "Lecciones faltantes del CLIPPRV",
       "Moodle desplegado con las OVAs finales",
@@ -100,7 +187,7 @@ const PROYECTOS = [
       "Backup organizado en Drive + matriz de inventario",
     ],
     enlaces: {
-      drive: "https://drive.google.com/drive/folders/1tOh81YWBrqZ8nVs1X8zVniv4BFlfIBX6?usp=drive_link",
+      drive: "https://drive.google.com/drive/folders/1ZKS5MdfIUQoLjiOmas8yBgcUZNVDah7C?usp=drive_link",
     },
   },
   {
@@ -108,8 +195,9 @@ const PROYECTOS = [
     nombre: "Investigación capacidad de Moodle",
     semestre: "2026-1",
     estado: "finalizado",
+    linea: "MDL",
     icono: "🧪",
-    encargados: ["Ana Sofía Cardozo"],
+    encargados: ["Juan Esteban Laguna"],
     descripcion:
       "Estudio del límite real de cursos libres virtualizados en el servidor de Moodle y viabilidad de duplicar cursos (Excel Macros, Odoo). Incluye métricas del servidor.",
     entregables: [
@@ -118,7 +206,7 @@ const PROYECTOS = [
       "Backup en Drive del material duplicado",
     ],
     enlaces: {
-      drive: "https://drive.google.com/drive/folders/1_3KqrrVLukkmRLHIbd0yGwMFoq56nR_N?usp=sharing",
+      drive: "https://docs.google.com/document/d/1NGX4wVoXlCaX_O5XVCd6oiQrkFNxjxdk/edit?usp=sharing&ouid=104555590579470237858&rtpof=true&sd=true",
     },
   },
   {
@@ -126,25 +214,30 @@ const PROYECTOS = [
     nombre: "Exploración Genially e integración",
     semestre: "2026-1",
     estado: "en-curso",
+    linea: "GEN",
     icono: "✨",
-    encargados: ["Juan L."],
+    encargados: ["Ana Sofia Cardozo"],
     descripcion:
-      "Investigación de Genially como alternativa a Articulate: caso de negocio con costos y ROI, comparativa, propuestas de gamificación e integración con Moodle, CL y Apoyos Académicos.",
+      "Evaluación técnica y pedagógica de la plataforma Genially, explorándola como una alternativa de mayor accesibilidad e interfaz más intuitiva frente a Articulate. La investigación comprendió un estudio detallado de sus restricciones operativas, su viabilidad financiera y la formulación de estrategias para su integración en los entornos virtuales de aprendizaje.",
     entregables: [
       "Documento de investigación (15-20 págs)",
       "Manual de uso de Genially",
       "Contenido de muestra para aprobar la suscripción completa",
       "Propuestas de integración con la UIFCE",
     ],
-    enlaces: {
-      documento: "https://docs.google.com/document/d/1UbeuP3jguwU9Ao16irY4pZPM28rSwqOwv29brXrXz8E/edit?usp=drive_link",
-    },
+    enlaces: {},
+    extras: [
+      { texto: "Manual Genially", icono: "📄", url: "https://docs.google.com/document/d/1cAHxx3O1KxBloTTxLOuhlPc0tUxvapFVOmBZsOexnyw/edit?usp=drive_link" },
+      { texto: "Integración nueva herramienta", icono: "🔗", url: "https://docs.google.com/document/d/1g7jSf7wvQlsR1N3J0-4q_V_op9_UuR_wgY98VypeHcU/edit?usp=drive_link" },
+      { texto: "Mochila de supervivencia", icono: "🎒", url: "https://view.genially.com/69af6ec583dcae28409c3d45" },
+    ],
   },
   {
     id: "excel-financiero",
     nombre: "Virtualización Excel Financiero 1 y 2",
     semestre: "2026-1",
     estado: "en-curso",
+    linea: "EXC",
     icono: "💹",
     encargados: ["Equipo Virtualización"],
     descripcion:
@@ -157,23 +250,6 @@ const PROYECTOS = [
     ],
     enlaces: {
       drive: "https://drive.google.com/drive/folders/1dgYEizB-gPsVvZER1ba8GbuIG0PKVMo6?usp=drive_link",
-    },
-  },
-  {
-    id: "material-existente",
-    nombre: "Material existente virtualización",
-    semestre: "2026-1",
-    estado: "finalizado",
-    icono: "🗄️",
-    encargados: ["Equipo Virtualización"],
-    descripcion:
-      "Repositorio del material previamente virtualizado por el área, disponible como base de consulta y reutilización para los proyectos actuales y futuros.",
-    entregables: [
-      "Recopilación organizada del material previo",
-      "Base de consulta para nuevos proyectos",
-    ],
-    enlaces: {
-      drive: "https://drive.google.com/drive/folders/1MrKrjBXYNJtayEXDA8aOCTmcbR9xrNif?usp=drive_link",
     },
   },
   {
@@ -374,6 +450,17 @@ const HERRAMIENTAS = [
 ];
 
 /* --------------------------------------------------------------------------
+   5b. LOOP DE LOGOS (tecnologías que se enseñan en el área)
+   -------------------------------------------------------------------------- */
+const LOGO_LOOP = [
+  { nombre: "Excel", archivo: "assets/logos/excel.svg" },
+  { nombre: "SQL", archivo: "assets/logos/mysql.svg" },
+  { nombre: "Universidad Nacional de Colombia", archivo: "assets/institucional/logo-unal.png" },
+  { nombre: "Python", archivo: "assets/logos/python.svg" },
+  { nombre: "R", archivo: "assets/logos/r.svg" },
+];
+
+/* --------------------------------------------------------------------------
    6. RECURSOS DE MARCA
    Las imágenes ya están en assets/. Para descargar, el botón apunta al archivo.
    -------------------------------------------------------------------------- */
@@ -466,6 +553,158 @@ const GUIAS = [
     desc: "Nombrar cada capa, botón e interacción para facilitar reproducibilidad entre plantillas.",
     icono: "🏷️",
     url: "",
+  },
+];
+
+/* --------------------------------------------------------------------------
+   6b. GUÍA DE VIRTUALIZACIÓN (resumen visual de la Guía de Primeros Pasos)
+   -------------------------------------------------------------------------- */
+const FLUJO_VIRTUALIZACION = [
+  { icono: "📥", nombre: "Recepción y organización", desc: "Se reciben los insumos del docente: syllabus, presentaciones, bibliografía y ejercicios." },
+  { icono: "🧭", nombre: "Estructuración pedagógica", desc: "Se define la organización del curso: módulos, secuencia de aprendizaje y recursos necesarios." },
+  { icono: "🎬", nombre: "Producción multimedia", desc: "Se elaboran guiones, narraciones, videos y recursos gráficos de apoyo." },
+  { icono: "🧩", nombre: "Desarrollo interactivo", desc: "Se monta el contenido en Articulate 360: narraciones, botones, interacciones y evaluaciones." },
+  { icono: "🔍", nombre: "Revisión y ajustes", desc: "Se valida funcionamiento, ortografía, consistencia visual y navegación antes de publicar." },
+  { icono: "📦", nombre: "Exportación", desc: "Se generan los entregables finales, generalmente en formato SCORM." },
+  { icono: "🚀", nombre: "Implementación y despliegue", desc: "Se carga el recurso en Moodle y se valida su acceso y funcionamiento." },
+];
+
+const ROLES_VIRTUALIZACION = [
+  { icono: "🧑‍💼", nombre: "Monitor Máster", desc: "Planea, supervisa y coordina el flujo general del área; valida calidad y coherencia de los OVAs." },
+  { icono: "🧑‍💻", nombre: "Monitores Junior", desc: "Desarrollan y producen los recursos: contenidos, interactividad, audiovisuales y documentación." },
+  { icono: "🎨", nombre: "Estrategias Tecnológicas", desc: "Apoya identidad visual, recursos gráficos y difusión multimedia." },
+  { icono: "🛠️", nombre: "Desarrollo", desc: "Brinda soporte técnico de infraestructura, Moodle y plataformas." },
+  { icono: "🗄️", nombre: "Gestión del Conocimiento", desc: "Apoya la organización documental y la preservación de recursos." },
+  { icono: "📚", nombre: "Cursos Libres", desc: "Se articula para la implementación y despliegue de los cursos virtualizados." },
+];
+
+const PRACTICAS_VIRTUALIZACION = [
+  { icono: "🧹", nombre: "Claridad y organización", desc: "Textos breves, contenidos divididos en secciones y jerarquías visuales claras." },
+  { icono: "🎯", nombre: "Coherencia visual y metodológica", desc: "Tipografías, colores, iconografía y navegación consistentes entre cursos." },
+  { icono: "⚖️", nombre: "Equilibrio con multimedia", desc: "Videos y narraciones que apoyan el aprendizaje, sin saturar la experiencia." },
+  { icono: "🧪", nombre: "Enfoque práctico", desc: "Ejercicios aplicados, ejemplos contextualizados y demostraciones reales." },
+  { icono: "🗂️", nombre: "Organización y respaldo", desc: "Archivos, narraciones y videos guardados en la estructura documental del área." },
+  { icono: "🔁", nombre: "Revisión constante", desc: "Mejora continua de los recursos ya publicados." },
+];
+
+const GLOSARIO_VIRTUALIZACION = [
+  { termino: "OVA", desc: "Objeto Virtual de Aprendizaje: recurso educativo digital interactivo." },
+  { termino: "Guion Maestro", desc: "Documento central de planeación y documentación de un OVA o curso virtualizado." },
+  { termino: "SCORM", desc: "Estándar para empaquetar y desplegar contenidos LMS con seguimiento de progreso." },
+  { termino: "LMS", desc: "Sistema de gestión de aprendizaje utilizado para administrar cursos virtuales (ej. Moodle)." },
+  { termino: "Escena", desc: "Conjunto de diapositivas que representa una lección o módulo en Articulate." },
+  { termino: "Capa", desc: "Contenido adicional mostrado sobre una diapositiva sin cambiar de escena." },
+  { termino: "Trigger (Accionador)", desc: "Configuración que define qué ocurre al interactuar con un objeto en Articulate." },
+  { termino: "Gamificación", desc: "Uso de dinámicas de juego para fortalecer la motivación y participación del estudiante." },
+  { termino: "Narración", desc: "Audio que acompaña y explica los contenidos visuales de un OVA." },
+  { termino: "H5P", desc: "Herramienta para crear cuestionarios, juegos y actividades interactivas." },
+];
+
+/* --------------------------------------------------------------------------
+   7b. ORGANIZACIÓN DE CARPETAS (mapa visual del dominio en Drive)
+   Basado en el Estándar de Estructura de Carpetas del área.
+   Cada subcarpeta es { nombre, descripcion, subcarpetas? } — "subcarpetas" es
+   opcional y solo se usa para anidar un nivel más (Guias_herramientas, plantilla de curso).
+   -------------------------------------------------------------------------- */
+const CARPETAS_RAIZ = "Virtualizacion_Academica";
+const CARPETAS_DRIVE_URL = "https://drive.google.com/drive/folders/1C44YCShWIBv5o6pMvCs9CHV1DB0_fyGO?usp=drive_link";
+
+const SUBCARPETAS_CURSO = [
+  { nombre: "01_Insumos_y_estructura", descripcion: "Insumos entregados por docentes (presentaciones, textos, syllabus) y definición de la estructura académica: objetivos, módulos y secuencia de contenidos." },
+  { nombre: "02_Guion_y_apoyos", descripcion: "Guion general y por módulo, textos de pantalla, instrucciones de interacción, retroalimentaciones y demás apoyos de desarrollo." },
+  { nombre: "03_Recursos", descripcion: "Imágenes, íconos, audios, videos, capturas, gráficos y documentos descargables usados en la producción del curso." },
+  { nombre: "04_Produccion_y_revision", descripcion: "Archivos fuente de producción (Articulate 360 u otras herramientas), versiones de trabajo, observaciones y revisiones internas." },
+  { nombre: "05_Entrega_y_cierre", descripcion: "Paquetes de entrega, versiones finales aprobadas, exportaciones SCORM/HTML y documentos de cierre del proyecto." },
+];
+
+const ESTRUCTURA_CARPETAS = [
+  {
+    nombre: "00_Gestion_del_area",
+    icono: "🗂️",
+    objetivo: "Centralizar los documentos de planeación, coordinación, seguimiento y administración general del área.",
+    subcarpetas: [
+      { nombre: "01_Planeacion_y_control", descripcion: "Cronogramas semestrales, planes de trabajo, hojas de ruta, seguimiento de actividades e indicadores de cumplimiento." },
+      { nombre: "02_Organizacion_del_area", descripcion: "Propósito, alcance, funciones, responsabilidades, licencias, accesos y recursos operativos del área." },
+      { nombre: "03_Reuniones_y_actas", descripcion: "Actas, minutas, acuerdos y compromisos derivados de reuniones formales del área." },
+      { nombre: "04_Solicitudes_y_priorizacion", descripcion: "Solicitudes de cursos recibidas, matrices de priorización, backlog y criterios de selección." },
+      { nombre: "05_Historico", descripcion: "Cronogramas, planes y actas de periodos anteriores que ya no están vigentes, conservados como memoria." },
+    ],
+  },
+  {
+    nombre: "01_Guias_y_documentacion",
+    icono: "📘",
+    objetivo: "Concentrar el conocimiento metodológico y operativo del área: cómo se trabaja, qué lineamientos existen y qué herramientas se utilizan.",
+    subcarpetas: [
+      { nombre: "00_Guias_generales", descripcion: "Documentos introductorios y guías marco que explican el funcionamiento general del área." },
+      {
+        nombre: "01_Guias_herramientas",
+        descripcion: "Guías específicas de uso de cada herramienta: primeros pasos, recomendaciones y buenas prácticas.",
+        subcarpetas: [
+          { nombre: "01_Articulate360", descripcion: "Guía de primeros pasos y buenas prácticas de Articulate 360." },
+          { nombre: "02_Genially", descripcion: "Guía de uso, tipos de diseño e interactividad en Genially." },
+          { nombre: "03_Canva", descripcion: "Guía de uso de Canva para piezas gráficas y plantillas del área." },
+          { nombre: "04_GoogleAIStudio", descripcion: "Guía de uso de Google AI Studio para generación de contenido con IA." },
+        ],
+      },
+      { nombre: "02_Protocolos_y_estandares", descripcion: "Protocolos, estándares, criterios de calidad y reglas de nomenclatura y estructura documental." },
+      { nombre: "03_Formatos_y_apoyos_documentales", descripcion: "Formatos de brief, listas de chequeo, formatos de revisión y cierre, y matrices documentales." },
+      { nombre: "04_Referencias_y_ejemplos", descripcion: "Referentes visuales, ejemplos de interacciones, casos de uso y muestras de buenas prácticas." },
+      { nombre: "05_Historico", descripcion: "Versiones antiguas o reemplazadas de esta documentación, conservadas como respaldo." },
+    ],
+  },
+  {
+    nombre: "02_Plantillas_maestras",
+    icono: "🧩",
+    objetivo: "Centralizar los archivos base reutilizables que sirven como punto de partida para la producción de cursos y recursos.",
+    subcarpetas: [
+      { nombre: "01_Articulate360", descripcion: "Plantillas maestras de Articulate 360, versiones base y estructuras reutilizables." },
+      { nombre: "02_Genially", descripcion: "Plantillas y estructuras base desarrolladas en Genially, adaptables a distintos proyectos." },
+      { nombre: "03_Canva", descripcion: "Plantillas gráficas y piezas visuales base de uso recurrente en Canva." },
+      { nombre: "04_Guiones_y_estructuras", descripcion: "Modelos de guion, esqueletos de curso y formatos base de diseño instruccional." },
+      { nombre: "05_Historico", descripcion: "Versiones antiguas de plantillas ya reemplazadas, conservadas como respaldo." },
+    ],
+  },
+  {
+    nombre: "03_Cursos_en_proceso",
+    icono: "🚧",
+    objetivo: "Reunir los cursos y proyectos académicos en desarrollo, revisión o producción activa.",
+    subcarpetas: [
+      {
+        nombre: "VA_[LINEA]_[NIVEL]_[NOMBRECORTO]_[PERIODO]",
+        descripcion: "Carpeta raíz de cada curso individual (ej. VA_EXC_BAS_ExcelBasico_2026-1), con la misma estructura interna en los 5 pasos de producción.",
+        subcarpetas: SUBCARPETAS_CURSO,
+      },
+    ],
+  },
+  {
+    nombre: "04_Cursos_finalizados",
+    icono: "✅",
+    objetivo: "Conservar los cursos ya terminados y aprobados, manteniendo la misma estructura interna que en Cursos en proceso.",
+    subcarpetas: [
+      {
+        nombre: "VA_[LINEA]_[NIVEL]_[NOMBRECORTO]_[PERIODO]",
+        descripcion: "Carpeta raíz del curso ya cerrado, trasladada sin reorganizar, conservando sus 5 subcarpetas originales.",
+        subcarpetas: SUBCARPETAS_CURSO,
+      },
+    ],
+  },
+  {
+    nombre: "05_Recursos_reutilizables",
+    icono: "♻️",
+    objetivo: "Guardar recursos visuales, audiovisuales, interactivos, evaluativos, estructurales y gamificados reutilizables en distintos cursos.",
+    subcarpetas: [
+      { nombre: "01_Recursos_visuales", descripcion: "Imágenes, ilustraciones, fondos, texturas y elementos gráficos decorativos." },
+      { nombre: "02_Recursos_audiovisuales", descripcion: "Audios, efectos de sonido, narraciones base, clips de video y animaciones." },
+      { nombre: "03_Interacciones_y_evaluaciones", descripcion: "Modelos de interacciones, actividades tipo, bancos de preguntas y plantillas de evaluación." },
+      { nombre: "04_Estructuras_y_gamificacion", descripcion: "Esqueletos de módulos, insignias, barras de progreso, retos y demás dinámicas de gamificación." },
+      { nombre: "05_Historico", descripcion: "Recursos reutilizables ya reemplazados o fuera de uso, conservados como respaldo." },
+    ],
+  },
+  {
+    nombre: "07_Historico",
+    icono: "📦",
+    objetivo: "Conservar materiales, documentos y proyectos que ya no forman parte del trabajo activo, pero que deben preservarse como memoria institucional.",
+    subcarpetas: [],
   },
 ];
 

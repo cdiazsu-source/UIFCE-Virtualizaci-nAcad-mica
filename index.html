@@ -19,10 +19,12 @@
     <button class="nav__toggle" id="navToggle" aria-label="Abrir menú">☰</button>
     <nav class="nav__links" id="navLinks">
       <a href="#proyectos">Proyectos</a>
+      <a href="#guia-virtualizacion">Guía</a>
       <a href="#genially">Genially</a>
       <a href="#herramientas">Herramientas &amp; IA</a>
       <a href="#recursos">Recursos</a>
       <a href="#guias">Guías</a>
+      <a href="#carpetas">Carpetas</a>
     </nav>
   </header>
 
@@ -33,7 +35,7 @@
       <span class="hero__badge">Semestre <strong id="heroSemestre">—</strong></span>
       <h1 class="hero__title" id="heroTitulo">Área de Virtualización</h1>
       <p class="hero__subtitle" id="heroSubtitulo"></p>
-      <p class="hero__desc" id="heroDesc"></p>
+      <ul class="hero__desc" id="heroDesc"></ul>
       <div class="hero__cta">
         <a href="#proyectos" class="btn btn--primary">Ver proyectos</a>
         <a href="https://docs.google.com/document/d/1d4DcUWD8yY-t4QPceg0EvUQhM8YOXi9bu39DvisUFBc/edit?usp=drive_link" class="btn btn--primary" target="_blank" rel="noopener">Primeros pasos</a>
@@ -45,6 +47,11 @@
     </div>
   </section>
 
+  <!-- ============ LOGO LOOP HERRAMIENTAS ============ -->
+  <div class="logoloop-wrap">
+    <div class="logoloop" id="logoLoop"></div>
+  </div>
+
   <!-- ============ LÍNEA DE TIEMPO ============ -->
   <section class="section section--tight" id="timeline">
     <div class="section__head">
@@ -53,14 +60,28 @@
     </div>
     <div class="card timeline__intro">
       <p>
-        El Área de Virtualización nace en el semestre 2026-1 como respuesta a la necesidad de estandarizar
-        la producción audiovisual y didáctica del material de e-learning de la Unidad de Informática.
-        Su creación busca consolidar criterios técnicos y pedagógicos comunes que den soporte a tres frentes:
-        los Cursos Libres ofrecidos por la Facultad, las capacitaciones administrativas e internas de la
-        Unidad, y la modernización de los cursos ya existentes de la Facultad de Ciencias Económicas.
-        De esta manera, el área centraliza el diseño instruccional, la producción multimedia y la
-        gamificación de contenidos, sentando una base reproducible para los equipos de monitores que
-        se sumen en semestres posteriores.
+        La creación del área (2026-1) marca un hito en la transformación digital de la Unidad de
+        Informática, establecido con el propósito de organizar y elevar la calidad de la producción
+        educativa virtual.
+      </p>
+      <p>
+        Su objetivo central es definir lineamientos técnicos y pedagógicos comunes que aseguren la
+        excelencia de los materiales de estudio y mejoren la experiencia de aprendizaje de la comunidad
+        académica.
+      </p>
+      <p>
+        La labor del área se despliega en tres frentes fundamentales: el apoyo a los cursos de extensión
+        de la Facultad, la capacitación del personal administrativo interno y la actualización
+        metodológica de las asignaturas de la Facultad de Ciencias Económicas.
+      </p>
+      <p>
+        Para lograrlo, la dependencia unifica y moderniza procesos clave, tales como el diseño de los
+        cursos, la elaboración de recursos multimedia y la integración de dinámicas interactivas.
+      </p>
+      <p>
+        Esta iniciativa sienta las bases de un modelo de trabajo estructurado y sostenible, diseñado
+        para orientar la labor de los futuros equipos de monitores y garantizar el crecimiento continuo
+        del área en los próximos periodos académicos.
       </p>
     </div>
     <div class="timeline" id="timelineTrack"></div>
@@ -78,7 +99,35 @@
       <button class="chip" data-estado="finalizado">Finalizados</button>
       <button class="chip" data-estado="pendiente">Pendientes</button>
     </div>
+    <div class="filters" id="filtrosCategoria">
+      <button class="chip chip--active" data-categoria="todos">Todas las áreas</button>
+      <button class="chip" data-categoria="herramienta">Herramientas y software</button>
+      <button class="chip" data-categoria="disciplina">Clases y disciplinas</button>
+    </div>
+    <select class="select-linea" id="filtroLinea" hidden>
+      <option value="todos">Todas las líneas</option>
+    </select>
     <div class="grid grid--cards" id="proyectosGrid"></div>
+  </section>
+
+  <!-- ============ GUÍA DE VIRTUALIZACIÓN ============ -->
+  <section class="section section--alt" id="guia-virtualizacion">
+    <div class="section__head">
+      <h2>Guía de Virtualización Académica</h2>
+      <p>Resumen visual de la guía de primeros pasos: cómo se virtualiza un curso, quién hace qué y qué buenas prácticas seguimos.</p>
+    </div>
+
+    <h3 class="subhead">Flujo de virtualización</h3>
+    <div class="flujo" id="flujoGrid"></div>
+
+    <h3 class="subhead">Roles del equipo</h3>
+    <div class="grid grid--roles" id="rolesGrid"></div>
+
+    <h3 class="subhead">Buenas prácticas</h3>
+    <div class="grid grid--practicasv" id="practicasVGrid"></div>
+
+    <h3 class="subhead">Glosario básico</h3>
+    <div class="glosario" id="glosarioGrid"></div>
   </section>
 
   <!-- ============ GENIALLY ============ -->
@@ -151,6 +200,16 @@
       <p>Material de referencia para no reinventar cada semestre.</p>
     </div>
     <div class="grid grid--guias" id="guiasGrid"></div>
+  </section>
+
+  <!-- ============ ORGANIZACIÓN DE CARPETAS ============ -->
+  <section class="section section--alt" id="carpetas">
+    <div class="section__head">
+      <h2>Organización de carpetas</h2>
+      <p>Mapa del dominio del área en Google Drive. Haz clic en cada carpeta para ver su contenido.</p>
+    </div>
+    <div class="carpetas__raiz" id="carpetasRaiz"></div>
+    <div class="carpetas__grid" id="carpetasGrid"></div>
   </section>
 
   <!-- ============ FOOTER ============ -->
