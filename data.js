@@ -149,6 +149,7 @@ const PROYECTOS = [
       "Documento del Estándar de Estructura de Carpetas (versión final)",
       "Norma de nomenclatura de carpetas, cursos y archivos",
       "Organización del material existente dentro del nuevo dominio",
+      "<strong>Archivo .md para integrar con inteligencia artificial</strong>",
     ],
     enlaces: {
       drive: "https://drive.google.com/drive/folders/1MrKrjBXYNJtayEXDA8aOCTmcbR9xrNif?usp=drive_link",
