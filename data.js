@@ -33,27 +33,27 @@ const INTRO_AREA_CARDS = [
   {
     icono: "📍",
     titulo: "Antecedentes del área",
-    texto: "El área se creó en el semestre 2026-1 con el propósito de organizar y consolidar la producción de material educativo virtual dentro de la Unidad de Informática.",
+    texto: "La conformación del área se formalizó en el periodo 2026-1, surgiendo como una iniciativa clave para centralizar, gestionar y consolidar la producción de contenidos educativos digitales (e-learning) bajo la dirección de la Unidad de Informática.",
   },
   {
     icono: "🎯",
     titulo: "Foco estratégico",
-    texto: "Su objetivo es establecer lineamientos técnicos y pedagógicos comunes que garanticen la calidad de los materiales de estudio y contribuyan a la experiencia de aprendizaje de la comunidad académica.",
+    texto: "implementar directrices técnicas y pedagógicas transversales. Esta estandarización permite garantizar la alta calidad de los materiales de estudio y maximizar el valor del ecosistema de aprendizaje institucional.",
   },
   {
     icono: "🧭",
     titulo: "Pilares estratégicos",
-    texto: "El trabajo del área se concentra en tres frentes: el apoyo a los cursos de extensión de la Facultad, la capacitación del personal administrativo interno y la actualización metodológica de las asignaturas de la Facultad de Ciencias Económicas.",
+    texto: "Tres ejes de acción prioritarios: el <strong>fortalecimiento de la oferta de educación continua</strong>, la <strong>formación integral del personal administrativo interno</strong> y la <strong>modernización pedagógica</strong> de las asignaturas pertenecientes a la Facultad de Ciencias Económicas.",
   },
   {
     icono: "⚙️",
     titulo: "Modelo operativo",
-    texto: "Para ello, se han unificado y actualizado procesos clave como el diseño de los cursos, la elaboración de recursos multimedia y la incorporación de dinámicas interactivas.",
+    texto: "El modelo se soporta en la actualización y homologación de procesos clave, tales como el diseño de experiencias de aprendizaje, la generación de contenidos multimedia de alta calidad y la adopción de dinámicas interactivas avanzadas.",
   },
   {
-    icono: "🌱",
-    titulo: "Sostenibilidad y crecimiento",
-    texto: "Este trabajo busca establecer un modelo de organización sostenible que oriente la labor de los futuros equipos de monitores y permita la continuidad del área en los siguientes periodos académicos.",
+    icono: "🚀",
+    titulo: "Visión de expansión y escalabilidad",
+    texto: "instituir un ecosistema de trabajo perdurable que oriente la labor de los futuros equipos de apoyo. De este modo, aseguramos la continuidad institucional del área y facilitamos una transición estratégica hacia el despliegue de contenidos en plataformas de e-learning de alto impacto.",
   },
 ];
 
@@ -402,9 +402,9 @@ const GENIALLY = {
       url: "https://view.genially.com/69af6ec583dcae28409c3d45",
     },
     {
-      nombre: "Material para un profesor FCE",
-      desc: "Virtualización interactiva de las diapositivas de un profesor, primeras sesiones de Contabilidad de gestión.",
-      icono: "👨‍🏫",
+      nombre: "Ufcito Virtualizado",
+      desc: "Animación para apertura de los proyectos de virtualización.",
+      icono: "🤖",
       url: "https://view.genially.com/69ebc91cd98ab7d033240be1",
     },
     {
@@ -631,6 +631,22 @@ const AREAS_UIFCE = [
 ];
 
 /* --------------------------------------------------------------------------
+   6a2. NUEVA PLANTILLA ARTICULATE 360 (comparador antes / después)
+   Pon la ruta de tus dos imágenes en "antes" y "despues" (ej. "assets/...").
+   -------------------------------------------------------------------------- */
+const PLANTILLA_ARTICULATE = {
+  puntos: [
+    "Asegurar una alta tasa de adopción tecnológica y potenciar el desarrollo de competencias analíticas en la Facultad.",
+    "Navegación intuitiva que garantiza la reducción de fricción en el entorno de aprendizaje.",
+    "Simuladores de toma de decisiones que permiten aplicar la teoría en escenarios de riesgo y gestión de datos.",
+    "Visualización clara de la información y tutoría asincrónica guiada.",
+    "Reducción de la sobrecarga cognitiva, facilitando el dominio autónomo de herramientas y procesos técnicos complejos.",
+  ],
+  antes: "",
+  despues: "",
+};
+
+/* --------------------------------------------------------------------------
    6b. GUÍA DE VIRTUALIZACIÓN (resumen visual de la Guía de Primeros Pasos)
    -------------------------------------------------------------------------- */
 const FLUJO_VIRTUALIZACION = [
@@ -646,10 +662,6 @@ const FLUJO_VIRTUALIZACION = [
 const ROLES_VIRTUALIZACION = [
   { icono: "🧑‍💼", nombre: "Monitor Máster", desc: "Planea, supervisa y coordina el flujo general del área; valida calidad y coherencia de los OVAs." },
   { icono: "🧑‍💻", nombre: "Monitores Junior", desc: "Desarrollan y producen los recursos: contenidos, interactividad, audiovisuales y documentación." },
-  { icono: "🎨", nombre: "Estrategias Tecnológicas", desc: "Apoya identidad visual, recursos gráficos y difusión multimedia." },
-  { icono: "🛠️", nombre: "Desarrollo", desc: "Brinda soporte técnico de infraestructura, Moodle y plataformas." },
-  { icono: "🗄️", nombre: "Gestión del Conocimiento", desc: "Apoya la organización documental y la preservación de recursos." },
-  { icono: "📚", nombre: "Cursos Libres", desc: "Se articula para la implementación y despliegue de los cursos virtualizados." },
 ];
 
 const PRACTICAS_VIRTUALIZACION = [

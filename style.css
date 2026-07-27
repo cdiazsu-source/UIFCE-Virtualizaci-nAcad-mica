@@ -170,6 +170,10 @@ img { max-width: 100%; display: block; }
   display: inline-block; background: var(--negro); color: #fff; font-weight: 800;
   padding: 0.55rem 1.6rem; border-radius: 999px; font-size: 1.02rem; letter-spacing: 0.02em;
 }
+.orgchart__raiz--nivel2 {
+  background: #fff; color: var(--azul-osc); border: 2px solid var(--azul);
+  font-size: 0.92rem; padding: 0.5rem 1.4rem;
+}
 .orgchart__linea { width: 2px; height: 22px; background: var(--gris-300); margin: 0 auto; }
 .orgchart__areas { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 1rem; }
 .orgchart__area {
@@ -371,6 +375,33 @@ img { max-width: 100%; display: block; }
 .glosario__item { background: #fff; border: 1px solid var(--gris-100); border-radius: var(--radio-sm); padding: 0.9rem 1.1rem; }
 .glosario__termino { font-weight: 700; color: var(--azul-osc); font-size: 0.9rem; margin-bottom: 0.25rem; }
 .glosario__desc { font-size: 0.8rem; color: var(--gris-500); }
+
+/* ---------- NUEVA PLANTILLA ARTICULATE 360 (comparador) ---------- */
+.plantilla__puntos {
+  list-style: none; max-width: 700px; margin: 0 auto 2rem; padding: 0;
+  display: flex; flex-direction: column; gap: 0.7rem;
+}
+.plantilla__puntos li {
+  position: relative; padding-left: 1.4rem; font-size: 0.96rem; color: var(--gris-700); line-height: 1.55;
+}
+.plantilla__puntos li::before { content: "•"; position: absolute; left: 0; color: var(--azul); font-weight: 800; }
+
+.compareslider {
+  position: relative; max-width: 760px; margin: 0 auto; aspect-ratio: 16 / 10;
+  border-radius: var(--radio); overflow: hidden; box-shadow: var(--sombra-lg);
+  cursor: ew-resize; user-select: none; background: var(--gris-100); touch-action: none;
+}
+.compareslider__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+.compareslider__before { clip-path: inset(0 50% 0 0); }
+.compareslider__handle {
+  position: absolute; top: 0; bottom: 0; left: 50%; width: 3px; background: #fff;
+  transform: translateX(-50%); box-shadow: 0 0 10px rgba(0,0,0,0.35); pointer-events: none;
+}
+.compareslider__handle::after {
+  content: "⇔"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  background: #fff; color: var(--azul-osc); width: 38px; height: 38px; border-radius: 50%;
+  display: grid; place-items: center; box-shadow: var(--sombra-lg); font-size: 1.05rem;
+}
 
 /* ---------- GENIALLY ---------- */
 .genially__intro p { color: var(--gris-700); font-size: 1rem; }

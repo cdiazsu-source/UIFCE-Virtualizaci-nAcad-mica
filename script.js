@@ -240,6 +240,37 @@ function actualizarSelectLinea() {
   select.hidden = opciones.length === 0;
 }
 
+/* ---------- NUEVA PLANTILLA ARTICULATE 360 (comparador antes/después) ---- */
+function renderPlantillaArticulate() {
+  const puntos = $("#plantillaPuntos");
+  puntos.innerHTML = PLANTILLA_ARTICULATE.puntos.map(p => `<li>${p}</li>`).join("");
+
+  const before = $("#compareBefore"), after = $("#compareAfter");
+  before.src = PLANTILLA_ARTICULATE.antes || "";
+  after.src = PLANTILLA_ARTICULATE.despues || "";
+
+  initCompareSlider();
+}
+
+function initCompareSlider() {
+  const wrap = $("#compareSlider"), before = $("#compareBefore"), handle = $("#compareHandle");
+  let dragging = false;
+
+  function setPercent(clientX) {
+    const rect = wrap.getBoundingClientRect();
+    const pct = Math.min(100, Math.max(0, ((clientX - rect.left) / rect.width) * 100));
+    before.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+    handle.style.left = `${pct}%`;
+  }
+
+  setPercent(wrap.getBoundingClientRect().left + wrap.getBoundingClientRect().width / 2);
+
+  wrap.addEventListener("pointerdown", (e) => { dragging = true; wrap.setPointerCapture(e.pointerId); setPercent(e.clientX); });
+  wrap.addEventListener("pointermove", (e) => { if (dragging) setPercent(e.clientX); });
+  wrap.addEventListener("pointerup", () => { dragging = false; });
+  wrap.addEventListener("pointerleave", () => { dragging = false; });
+}
+
 /* ---------- GUÍA DE VIRTUALIZACIÓN ---------- */
 function renderGuiaVirtualizacion() {
   const flujo = $("#flujoGrid");
@@ -1543,6 +1574,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderProyectos();
   renderGuiaVirtualizacion();
   renderGenially();
+  renderPlantillaArticulate();
   renderHerramientas();
   renderRecursos();
   renderGuias();
