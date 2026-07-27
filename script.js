@@ -245,25 +245,32 @@ function renderPlantillaArticulate() {
   const puntos = $("#plantillaPuntos");
   puntos.innerHTML = PLANTILLA_ARTICULATE.puntos.map(p => `<li>${p}</li>`).join("");
 
-  const before = $("#compareBefore"), after = $("#compareAfter");
-  before.src = PLANTILLA_ARTICULATE.antes || "";
-  after.src = PLANTILLA_ARTICULATE.despues || "";
-
-  initCompareSlider();
+  renderCompareSlider("compareSlider", "compareBefore", "compareAfter", "compareHandle", PLANTILLA_ARTICULATE);
+  renderCompareSlider("compareSlider2", "compareBefore2", "compareAfter2", "compareHandle2", COMPARATIVA_2);
+  renderCompareSlider("compareSlider3", "compareBefore3", "compareAfter3", "compareHandle3", COMPARATIVA_3);
 }
 
-function initCompareSlider() {
-  const wrap = $("#compareSlider"), before = $("#compareBefore"), handle = $("#compareHandle");
+function renderCompareSlider(wrapId, beforeId, afterId, handleId, data) {
+  $(`#${beforeId}`).src = data.antes || "";
+  $(`#${afterId}`).src = data.despues || "";
+  initCompareSlider(wrapId, beforeId, handleId);
+}
+
+function initCompareSlider(wrapId, beforeId, handleId) {
+  const wrap = $(`#${wrapId}`), before = $(`#${beforeId}`), handle = $(`#${handleId}`);
   let dragging = false;
 
-  function setPercent(clientX) {
-    const rect = wrap.getBoundingClientRect();
-    const pct = Math.min(100, Math.max(0, ((clientX - rect.left) / rect.width) * 100));
+  function applyPercent(pct) {
     before.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
     handle.style.left = `${pct}%`;
   }
+  function setPercent(clientX) {
+    const rect = wrap.getBoundingClientRect();
+    const pct = Math.min(100, Math.max(0, ((clientX - rect.left) / rect.width) * 100));
+    applyPercent(pct);
+  }
 
-  setPercent(wrap.getBoundingClientRect().left + wrap.getBoundingClientRect().width / 2);
+  applyPercent(100); // la imagen "antes" se muestra al 100% por defecto
 
   wrap.addEventListener("pointerdown", (e) => { dragging = true; wrap.setPointerCapture(e.pointerId); setPercent(e.clientX); });
   wrap.addEventListener("pointermove", (e) => { if (dragging) setPercent(e.clientX); });
@@ -331,16 +338,6 @@ function renderGenially() {
        <div class="tipo__tipos">${t.tipos}</div>
        <div class="tipo__uso">${t.uso}</div>`));
   });
-
-  const inter = $("#geniallyInteract");
-  GENIALLY.interactividad.forEach(i =>
-    inter.appendChild(el("li", null, `<b>${i.nombre}:</b> ${i.desc}`)));
-
-  const tec = GENIALLY.tecnicaClave;
-  $("#geniallyTecnica").innerHTML =
-    `<div class="tecnica__titulo">🔑 ${tec.titulo}</div>
-     <p class="tecnica__desc">${tec.desc}</p>
-     <ol class="tecnica__pasos">${tec.pasos.map(p => `<li>${p}</li>`).join("")}</ol>`;
 
   const prac = $("#geniallyPracticas");
   GENIALLY.buenasPracticas.forEach(b => {

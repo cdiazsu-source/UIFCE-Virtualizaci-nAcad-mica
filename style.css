@@ -136,6 +136,11 @@ img { max-width: 100%; display: block; }
   background: linear-gradient(90deg, var(--azul), var(--cian)); border-radius: 4px;
 }
 .section__head p { color: var(--gris-500); margin-top: 0.7rem; }
+.section__lead {
+  font-family: Georgia, "Times New Roman", serif; font-style: italic; font-weight: 500;
+  font-size: 1.02rem; line-height: 1.65; color: var(--gris-700);
+  max-width: 700px; margin: 0 auto 1.8rem; text-align: center;
+}
 .subhead {
   font-size: 1.15rem; font-weight: 700; margin: 2rem 0 1rem;
   padding-left: 0.7rem; border-left: 4px solid var(--azul);
@@ -392,6 +397,7 @@ img { max-width: 100%; display: block; }
   cursor: ew-resize; user-select: none; background: var(--gris-100); touch-action: none;
 }
 .compareslider__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+#compareAfter3 { left: 3.5%; right: 3.5%; width: 93%; }
 .compareslider__before { clip-path: inset(0 50% 0 0); }
 .compareslider__handle {
   position: absolute; top: 0; bottom: 0; left: 50%; width: 3px; background: #fff;
@@ -416,22 +422,6 @@ img { max-width: 100%; display: block; }
 }
 .tipo__tipos { font-size: 0.85rem; color: var(--negro); font-weight: 500; margin-bottom: 0.4rem; }
 .tipo__uso { font-size: 0.82rem; color: var(--gris-500); }
-.genially__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.3rem; margin-top: 1.5rem; align-items: start; }
-.list { list-style: none; }
-.list li { padding: 0.6rem 0; border-bottom: 1px solid var(--gris-100); font-size: 0.9rem; }
-.list li b { color: var(--azul-osc); }
-.tecnica__titulo { font-weight: 700; color: var(--azul-osc); font-size: 1.05rem; margin-bottom: 0.4rem; }
-.tecnica__desc { font-size: 0.88rem; color: var(--gris-700); margin-bottom: 0.8rem; }
-.tecnica__pasos { counter-reset: paso; list-style: none; }
-.tecnica__pasos li {
-  counter-increment: paso; position: relative; padding-left: 2rem; font-size: 0.85rem;
-  margin-bottom: 0.5rem; color: var(--gris-700);
-}
-.tecnica__pasos li::before {
-  content: counter(paso); position: absolute; left: 0; top: 0;
-  background: var(--azul); color: #fff; width: 1.4rem; height: 1.4rem; border-radius: 50%;
-  display: grid; place-items: center; font-size: 0.75rem; font-weight: 700;
-}
 .practica h4 { color: var(--azul-osc); margin-bottom: 0.5rem; font-size: 1rem; }
 .practica ul { list-style: none; }
 .practica li { font-size: 0.84rem; color: var(--gris-700); padding-left: 1.1rem; position: relative; margin-bottom: 0.3rem; }
@@ -595,5 +585,4 @@ img { max-width: 100%; display: block; }
   .hero__cta { justify-content: center; }
   .hero__mascot { order: -1; }
   .hero__mascot img { max-height: 220px; }
-  .genially__cols { grid-template-columns: 1fr; }
 }

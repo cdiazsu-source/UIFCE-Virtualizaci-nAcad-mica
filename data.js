@@ -351,25 +351,6 @@ const GENIALLY = {
       uso: "Comunicados de la unidad, epósteres de eventos, tarjetas de bienvenida.",
     },
   ],
-  interactividad: [
-    { nombre: "Etiqueta", desc: "Muestra un texto corto al pasar/hacer clic. Ideal para explicaciones breves." },
-    { nombre: "Ventana", desc: "Abre un panel con contenido extenso: imágenes, videos, listas." },
-    { nombre: "Ir a página", desc: "Lleva a otra página del diseño. Base de la gamificación y quizzes ramificados." },
-    { nombre: "Enlace externo", desc: "Abre una URL en nueva pestaña: recursos, bibliografía, YouTube." },
-  ],
-  tecnicaClave: {
-    titulo: "Modo Microsite + Áreas Invisibles",
-    desc:
-      "Combinando el Modo Microsite con áreas invisibles y la interactividad «Ir a página» se crean quizzes con retroalimentación por respuesta (acierto/error), escape rooms, juegos de código secreto y tableros de juego.",
-    pasos: [
-      "Crea la pregunta y sus opciones (Página 1).",
-      "Activa el Modo Microsite (barra inferior › Microsite).",
-      "Crea página de «Respuesta correcta» (Pág. 2) y de «Incorrecta» (Pág. 3).",
-      "Sobre la opción correcta pon un Área Invisible › «Ir a página» › Pág. 2.",
-      "Sobre las incorrectas, Áreas Invisibles › «Ir a página» › Pág. 3.",
-      "Prueba todo con Vista previa antes de publicar.",
-    ],
-  },
   buenasPracticas: [
     { fase: "Antes de crear", items: ["Define el objetivo pedagógico.", "Elige el tipo de diseño correcto (no uses presentación si necesitas un quiz).", "Revisa plantillas antes de empezar en blanco.", "Ten listo el contenido (textos, imágenes, URLs)."] },
     { fase: "Durante el diseño", items: ["Mantén la identidad visual (colores y tipografía institucionales).", "Menos es más: evita textos largos y exceso de animaciones.", "Cuida el contraste y texto legible (mín. 14pt).", "Bloquea el fondo y nombra las páginas."] },
@@ -642,8 +623,18 @@ const PLANTILLA_ARTICULATE = {
     "Visualización clara de la información y tutoría asincrónica guiada.",
     "Reducción de la sobrecarga cognitiva, facilitando el dominio autónomo de herramientas y procesos técnicos complejos.",
   ],
-  antes: "",
-  despues: "",
+  antes: "assets/plantillas/excel-basico-antes.png",
+  despues: "assets/plantillas/excel-basico-despues.png",
+};
+
+const COMPARATIVA_2 = {
+  antes: "assets/plantillas/comparativa2-antes.png",
+  despues: "assets/plantillas/comparativa2-despues.gif",
+};
+
+const COMPARATIVA_3 = {
+  antes: "assets/plantillas/comparativa3-antes.png",
+  despues: "assets/plantillas/comparativa3-despues.gif",
 };
 
 /* --------------------------------------------------------------------------
