@@ -27,6 +27,37 @@ const AREA = {
 };
 
 /* --------------------------------------------------------------------------
+   1b. TARJETAS DE INTRODUCCIÓN (se abren en un modal, van sobre la línea de tiempo)
+   -------------------------------------------------------------------------- */
+const INTRO_AREA_CARDS = [
+  {
+    icono: "📍",
+    titulo: "Antecedentes del área",
+    texto: "El área se creó en el semestre 2026-1 con el propósito de organizar y consolidar la producción de material educativo virtual dentro de la Unidad de Informática.",
+  },
+  {
+    icono: "🎯",
+    titulo: "Foco estratégico",
+    texto: "Su objetivo es establecer lineamientos técnicos y pedagógicos comunes que garanticen la calidad de los materiales de estudio y contribuyan a la experiencia de aprendizaje de la comunidad académica.",
+  },
+  {
+    icono: "🧭",
+    titulo: "Pilares estratégicos",
+    texto: "El trabajo del área se concentra en tres frentes: el apoyo a los cursos de extensión de la Facultad, la capacitación del personal administrativo interno y la actualización metodológica de las asignaturas de la Facultad de Ciencias Económicas.",
+  },
+  {
+    icono: "⚙️",
+    titulo: "Modelo operativo",
+    texto: "Para ello, se han unificado y actualizado procesos clave como el diseño de los cursos, la elaboración de recursos multimedia y la incorporación de dinámicas interactivas.",
+  },
+  {
+    icono: "🌱",
+    titulo: "Sostenibilidad y crecimiento",
+    texto: "Este trabajo busca establecer un modelo de organización sostenible que oriente la labor de los futuros equipos de monitores y permita la continuidad del área en los siguientes periodos académicos.",
+  },
+];
+
+/* --------------------------------------------------------------------------
    2. LÍNEA DE TIEMPO (semestres)
    Sirve para filtrar los proyectos. El "id" debe coincidir con el "semestre"
    que uses en cada proyecto más abajo.
@@ -123,6 +154,7 @@ const PROYECTOS = [
     },
     extras: [
       { texto: "Organización de carpetas", icono: "🗂️", url: "https://drive.google.com/drive/folders/1C44YCShWIBv5o6pMvCs9CHV1DB0_fyGO?usp=drive_link" },
+      { texto: "Ver mapa de carpetas", icono: "🗺️", url: "#carpetas" },
     ],
   },
   {
@@ -149,7 +181,7 @@ const PROYECTOS = [
     id: "excel-cl",
     nombre: "Actualización Cursos Libres de Excel",
     semestre: "2026-1",
-    estado: "en-curso",
+    estado: "finalizado",
     linea: "EXC",
     icono: "📊",
     encargados: ["César D."],
@@ -174,7 +206,7 @@ const PROYECTOS = [
     id: "python-r",
     nombre: "Finalización CL Introducción a Python y R",
     semestre: "2026-1",
-    estado: "en-curso",
+    estado: "finalizado",
     linea: "PYT",
     icono: "🐍",
     encargados: ["Juan Esteban Laguna"],
@@ -213,7 +245,7 @@ const PROYECTOS = [
     id: "genially",
     nombre: "Exploración Genially e integración",
     semestre: "2026-1",
-    estado: "en-curso",
+    estado: "finalizado",
     linea: "GEN",
     icono: "✨",
     encargados: ["Ana Sofia Cardozo"],
@@ -236,7 +268,7 @@ const PROYECTOS = [
     id: "excel-financiero",
     nombre: "Virtualización Excel Financiero 1 y 2",
     semestre: "2026-1",
-    estado: "en-curso",
+    estado: "finalizado",
     linea: "EXC",
     icono: "💹",
     encargados: ["Equipo Virtualización"],
@@ -553,6 +585,48 @@ const GUIAS = [
     desc: "Nombrar cada capa, botón e interacción para facilitar reproducibilidad entre plantillas.",
     icono: "🏷️",
     url: "",
+  },
+];
+
+/* --------------------------------------------------------------------------
+   2c. EL ÁREA DENTRO DE LA UIFCE (organigrama simple)
+   -------------------------------------------------------------------------- */
+const AREAS_UIFCE = [
+  {
+    sigla: "AA",
+    nombre: "Apoyos Académicos",
+    descripcion: "Área dedicada a resolver las necesidades tecnológicas del día a día académico, garantizando que profesores y alumnos cuenten con el soporte, las plataformas y el software especializado necesarios para sus clases y proyectos.",
+    relacionVA: "Brinda soporte técnico de primer nivel a profesores y estudiantes en el uso de los cursos y recursos virtualizados por el área, resolviendo inconvenientes cotidianos de acceso a plataformas y herramientas.",
+  },
+  {
+    sigla: "GC",
+    nombre: "Gestión del Conocimiento",
+    descripcion: "Su rol es preservar y potenciar el capital intelectual de la Unidad de Informática. Se encarga de sistematizar procesos, documentar soluciones tecnológicas y crear un repositorio institucional que garantice la continuidad operativa.",
+    relacionVA: "Apoya a Virtualización Académica en la organización documental y la preservación de los recursos y cursos producidos.",
+  },
+  {
+    sigla: "ET",
+    nombre: "Estrategias Tecnológicas",
+    descripcion: "Gestiona la difusión de todos los servicios que presta la UIFCE a través de los diferentes medios de comunicación, espacios y eventos a los que se tiene acceso, buscando que una mayor cantidad de usuarios hagan uso de estos.",
+    relacionVA: "Apoya a Virtualización Académica en la identidad visual, los recursos gráficos y la difusión multimedia de los cursos virtualizados.",
+  },
+  {
+    sigla: "VA",
+    nombre: "Virtualización Académica",
+    destacada: true,
+    descripcion: "Diseña, produce y despliega los Objetos Virtuales de Aprendizaje (OVA) y cursos virtualizados de la Facultad, articulándose con las demás áreas de la UIFCE para garantizar procesos técnicos, pedagógicos y documentales de calidad.",
+  },
+  {
+    sigla: "DS",
+    nombre: "Desarrollo",
+    descripcion: "Área responsable de impulsar la transformación digital mediante la arquitectura, desarrollo e integración de sistemas de información, garantizando que la Facultad cuente con plataformas de software robustas, seguras y escalables.",
+    relacionVA: "Brinda a Virtualización Académica el soporte técnico y de infraestructura necesario para la implementación de los cursos en Moodle y otras plataformas.",
+  },
+  {
+    sigla: "CL",
+    nombre: "Cursos Libres",
+    descripcion: "Encargada directa de la planeación, creación y gestión de los cursos libres a ofertar durante el semestre académico. Adicionalmente, apoya a profesores y administrativos de la FCE en el uso de herramientas tecnológicas enfocadas a la virtualidad, y direcciona el comité de cursos libres, que vela por la calidad y el contenido de los cursos ofertados por la UIFCE.",
+    relacionVA: "Se articula con Virtualización Académica para la implementación y el despliegue de los cursos virtualizados dentro de la oferta de Cursos Libres.",
   },
 ];
 

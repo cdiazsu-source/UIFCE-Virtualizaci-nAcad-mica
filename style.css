@@ -164,6 +164,83 @@ img { max-width: 100%; display: block; }
   .logoloop__track { transform: translate3d(0, 0, 0) !important; }
 }
 
+/* ---------- EL ÁREA DENTRO DE LA UIFCE (organigrama) ---------- */
+.orgchart { max-width: var(--max); margin: 0 auto; text-align: center; }
+.orgchart__raiz {
+  display: inline-block; background: var(--negro); color: #fff; font-weight: 800;
+  padding: 0.55rem 1.6rem; border-radius: 999px; font-size: 1.02rem; letter-spacing: 0.02em;
+}
+.orgchart__linea { width: 2px; height: 22px; background: var(--gris-300); margin: 0 auto; }
+.orgchart__areas { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 1rem; }
+.orgchart__area {
+  position: relative; background: #fff; border: 1.5px solid var(--gris-300); border-radius: var(--radio-sm);
+  padding: 0.9rem 1.1rem; min-width: 140px; font-weight: 600; font-size: 0.86rem; color: var(--gris-700);
+  font-family: var(--font); cursor: pointer; transition: transform .18s, box-shadow .2s, border-color .2s;
+}
+.orgchart__area:hover { transform: translateY(-2px); box-shadow: var(--sombra); border-color: var(--azul); }
+.orgchart__area--destacada:hover { transform: scale(1.14) translateY(-2px); }
+.orgchart__area::before {
+  content: ""; position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+  width: 2px; height: 14px; background: var(--gris-300);
+}
+.orgchart__sigla { display: block; font-size: 0.68rem; letter-spacing: 0.05em; color: var(--gris-500); margin-bottom: 0.25rem; }
+.orgchart__sigla-only { display: block; font-size: 1.1rem; font-weight: 800; color: var(--gris-700); letter-spacing: 0.03em; }
+.orgchart__area--destacada {
+  background: linear-gradient(160deg, var(--azul), var(--azul-osc)); color: #fff;
+  border-color: var(--azul-osc); transform: scale(1.14); box-shadow: var(--sombra-lg);
+  font-size: 0.96rem; z-index: 1; margin: 0 0.3rem;
+}
+.orgchart__area--destacada::before { background: var(--azul); height: 20px; top: -20px; }
+.orgchart__area--destacada .orgchart__sigla { color: rgba(255,255,255,0.75); }
+.orgchart__badge {
+  position: absolute; top: -11px; right: -8px; background: var(--cian); color: #fff;
+  font-size: 0.63rem; font-weight: 800; padding: 0.18rem 0.55rem; border-radius: 999px;
+  box-shadow: var(--sombra); white-space: nowrap;
+}
+
+/* ---------- TARJETAS DE INTRODUCCIÓN + MODAL ---------- */
+.modalcards {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 0.9rem; max-width: var(--max); margin: 0 auto 1.8rem;
+}
+.modalcard {
+  background: #fff; border: 1px solid var(--gris-100); border-radius: var(--radio-sm);
+  box-shadow: var(--sombra); padding: 1.2rem 1rem; cursor: pointer; text-align: left;
+  font-family: var(--font); transition: transform .18s, box-shadow .2s, border-color .2s;
+  display: flex; flex-direction: column; gap: 0.4rem;
+}
+.modalcard:hover { transform: translateY(-3px); box-shadow: var(--sombra-lg); border-color: var(--azul); }
+.modalcard__icono {
+  font-size: 1.3rem; width: 40px; height: 40px; background: var(--azul-claro);
+  border-radius: 10px; display: grid; place-items: center;
+}
+.modalcard__titulo { font-weight: 700; font-size: 0.92rem; color: var(--negro); }
+.modalcard__ver { font-size: 0.78rem; color: var(--azul-osc); font-weight: 600; }
+
+.modal { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; padding: 1.2rem; }
+.modal[hidden] { display: none; }
+.modal__backdrop { position: absolute; inset: 0; background: rgba(17,19,24,0.55); }
+.modal__panel {
+  position: relative; background: #fff; border-radius: var(--radio); box-shadow: var(--sombra-lg);
+  padding: 2rem 1.8rem; max-width: 480px; width: 100%;
+}
+.modal__close {
+  position: absolute; top: 0.8rem; right: 0.8rem; background: var(--gris-100); border: none;
+  border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 0.85rem; color: var(--gris-700);
+}
+.modal__close:hover { background: var(--azul-claro); color: var(--azul-osc); }
+.modal__title { font-size: 1.15rem; font-weight: 800; margin-bottom: 0.8rem; padding-right: 1.5rem; }
+.modal__body { font-size: 0.94rem; color: var(--gris-700); line-height: 1.6; }
+.modal__body p + p { margin-top: 0.9rem; }
+.modal__relacion { background: var(--azul-claro); border-radius: var(--radio-sm); padding: 0.8rem 1rem; }
+.modal__relacion strong { color: var(--azul-osc); }
+.modal__lista { list-style: none; padding: 0; margin-top: 0.6rem; }
+.modal__lista li {
+  font-size: 0.88rem; padding: 0.5rem 0; border-top: 1px dashed var(--gris-100);
+}
+.modal__lista li:first-child { border-top: none; }
+.modal__lista strong { color: var(--azul-osc); }
+
 /* ---------- TIMELINE ---------- */
 .timeline__intro { max-width: 760px; margin: 0 auto 1.8rem; }
 .timeline__intro p { color: var(--gris-700); font-size: 0.98rem; line-height: 1.6; }
@@ -472,10 +549,6 @@ img { max-width: 100%; display: block; }
 }
 .totop.show { opacity: 1; pointer-events: auto; }
 .totop:hover { transform: translateY(-3px); background: var(--azul-osc); }
-
-/* ---------- ANIMACIÓN DE ENTRADA ---------- */
-.reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
-.reveal.in { opacity: 1; transform: none; }
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 860px) {

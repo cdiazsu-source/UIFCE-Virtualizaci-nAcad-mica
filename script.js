@@ -35,6 +35,76 @@ function renderHero() {
   info.innerHTML = html;
 }
 
+/* ---------- MODAL genérico ---------- */
+function openModal(titulo, bodyHtml) {
+  $("#modalTitle").textContent = titulo;
+  $("#modalBody").innerHTML = bodyHtml;
+  $("#introModal").hidden = false;
+  document.body.style.overflow = "hidden";
+}
+function closeModal() {
+  $("#introModal").hidden = true;
+  document.body.style.overflow = "";
+}
+function initModal() {
+  $("#introModal").addEventListener("click", (e) => {
+    if (e.target.closest("[data-modal-close]")) closeModal();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !$("#introModal").hidden) closeModal();
+  });
+}
+
+/* ---------- TARJETAS DE INTRODUCCIÓN ---------- */
+function renderIntroCards() {
+  const wrap = $("#introModalCards");
+  wrap.innerHTML = INTRO_AREA_CARDS.map((c, i) => `
+    <button class="modalcard" type="button" data-idx="${i}">
+      <span class="modalcard__icono">${c.icono}</span>
+      <span class="modalcard__titulo">${c.titulo}</span>
+      <span class="modalcard__ver">Ver más ›</span>
+    </button>
+  `).join("");
+  $$(".modalcard", wrap).forEach(btn => {
+    btn.addEventListener("click", () => {
+      const c = INTRO_AREA_CARDS[Number(btn.dataset.idx)];
+      openModal(c.titulo, `<p>${c.texto}</p>`);
+    });
+  });
+}
+
+/* ---------- EL ÁREA DENTRO DE LA UIFCE ---------- */
+function buildAreaModalBody(area) {
+  let html = `<p>${area.descripcion}</p>`;
+  if (area.relacionVA) {
+    html += `<p class="modal__relacion"><strong>Relación con Virtualización Académica:</strong> ${area.relacionVA}</p>`;
+  }
+  if (area.destacada) {
+    const otras = AREAS_UIFCE.filter(a => a.relacionVA);
+    html += `<p class="modal__relacion"><strong>Articulación con otras áreas:</strong></p>
+      <ul class="modal__lista">${otras.map(a => `<li><strong>${a.sigla} · ${a.nombre}:</strong> ${a.relacionVA}</li>`).join("")}</ul>`;
+  }
+  return html;
+}
+
+function renderRolArea() {
+  const areas = $("#areasUifceGrid");
+  areas.innerHTML = AREAS_UIFCE.map((a, i) => `
+    <button class="orgchart__area ${a.destacada ? "orgchart__area--destacada" : ""}" type="button" data-idx="${i}">
+      ${a.destacada ? `<span class="orgchart__badge">2026</span>` : ""}
+      ${a.destacada
+        ? `<span class="orgchart__sigla">${a.sigla}</span>${a.nombre}`
+        : `<span class="orgchart__sigla-only">${a.sigla}</span>`}
+    </button>
+  `).join("");
+  $$(".orgchart__area", areas).forEach(btn => {
+    btn.addEventListener("click", () => {
+      const a = AREAS_UIFCE[Number(btn.dataset.idx)];
+      openModal(a.nombre, buildAreaModalBody(a));
+    });
+  });
+}
+
 /* ---------- TIMELINE ---------- */
 let semestreFiltro = "todos";
 function renderTimeline() {
@@ -85,7 +155,8 @@ function linkButtons(proyecto) {
   (proyecto.extras || []).forEach(x => {
     if (!x.url) return;
     const a = el("a", "linkbtn", `${x.icono || "🔗"} ${x.texto}`);
-    a.href = x.url; a.target = "_blank"; a.rel = "noopener";
+    a.href = x.url;
+    if (!x.url.startsWith("#")) { a.target = "_blank"; a.rel = "noopener"; }
     wrap.appendChild(a);
   });
   return wrap;
@@ -107,7 +178,7 @@ function renderProyectos() {
   }
 
   lista.forEach(p => {
-    const card = el("article", "card proj reveal");
+    const card = el("article", "card proj");
     const entregables = (p.entregables || []).map(x => `<li>${x}</li>`).join("");
     card.innerHTML = `
       <div class="proj__top">
@@ -268,7 +339,7 @@ function renderGenially() {
 function renderHerramientas() {
   const grid = $("#herramientasGrid");
   HERRAMIENTAS.forEach(h => {
-    const card = el("article", "card tool reveal");
+    const card = el("article", "card tool");
     let apps = "";
     h.apps.forEach(a => {
       apps += `<div class="tool__app">
@@ -354,7 +425,7 @@ function renderRecursos() {
 function renderGuias() {
   const grid = $("#guiasGrid");
   GUIAS.forEach(g => {
-    const card = el("article", "card guia reveal");
+    const card = el("article", "card guia");
     const boton = g.url
       ? `<a class="linkbtn" href="${g.url}" target="_blank" rel="noopener">Abrir ↗</a>`
       : `<span class="linkbtn linkbtn--off" title="Enlace pendiente por agregar en data.js">Enlace pendiente</span>`;
@@ -430,14 +501,31 @@ function initNav() {
   }, { passive: true });
 }
 
-let revealObserver;
-function observeReveal() {
-  if (!revealObserver) {
-    revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add("in"); revealObserver.unobserve(en.target); } });
-    }, { threshold: 0.12 });
-  }
-  $$(".reveal:not(.in)").forEach(n => revealObserver.observe(n));
+/* ---------- Animaciones de aparición (librería Motion) --------------------
+   Se activan cada vez que el usuario ve el elemento (no solo la primera vez):
+   al entrar en pantalla aparece con un leve desplazamiento, al salir se
+   reinicia para poder repetirse la próxima vez que vuelva a la vista.
+   --------------------------------------------------------------------------- */
+const REVEAL_SELECTOR = [
+  ".section__head", ".hero__content", ".hero__mascot",
+  ".card", ".proj", ".tool", ".guia", ".rol", ".practicav", ".carpeta",
+  ".modalcard", ".orgchart__area", ".flujo__paso", ".glosario__item",
+  ".timeline__item", ".tipo",
+].join(", ");
+
+function observeReveal(root = document) {
+  if (!window.Motion) return;
+  const { inView, animate } = window.Motion;
+  const targets = $$(REVEAL_SELECTOR, root).filter(n => !n.dataset.motionBound);
+  if (!targets.length) return;
+  targets.forEach(n => { n.dataset.motionBound = "1"; });
+  inView(targets, (el) => {
+    animate(el, { opacity: [0, 1], transform: ["translateY(18px)", "translateY(0)"] },
+      { duration: 0.5, easing: [0.22, 1, 0.36, 1] });
+    return (leave) => {
+      animate(leave.target, { opacity: 0, transform: "translateY(18px)" }, { duration: 0.01 });
+    };
+  }, { margin: "-10% 0px -10% 0px" });
 }
 
 /* ---------- SPLASH CURSOR (fluido WebGL siguiendo el mouse) ----------------
@@ -1447,6 +1535,9 @@ function renderLogoLoop() {
 /* ---------- INIT ---------- */
 document.addEventListener("DOMContentLoaded", () => {
   renderHero();
+  renderRolArea();
+  renderIntroCards();
+  initModal();
   renderTimeline();
   initFiltros();
   renderProyectos();

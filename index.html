@@ -14,7 +14,7 @@
   <header class="nav" id="nav">
     <a href="#inicio" class="nav__brand">
       <img src="assets/logos/logo-principal.png" alt="UIFCE" class="nav__logo" />
-      <span class="nav__area">Virtualización</span>
+      <span class="nav__area">Virtualización Académica</span>
     </a>
     <button class="nav__toggle" id="navToggle" aria-label="Abrir menú">☰</button>
     <nav class="nav__links" id="navLinks">
@@ -52,38 +52,26 @@
     <div class="logoloop" id="logoLoop"></div>
   </div>
 
+  <!-- ============ EL ÁREA DENTRO DE LA UIFCE ============ -->
+  <section class="section section--tight" id="rol-area">
+    <div class="section__head">
+      <h2>Virtualización Académica en la UIFCE</h2>
+      <p>Estructura de la Unidad de Informática y el rol estratégico de Virtualización Académica:</p>
+    </div>
+    <div class="orgchart">
+      <div class="orgchart__raiz">UIFCE</div>
+      <div class="orgchart__linea"></div>
+      <div class="orgchart__areas" id="areasUifceGrid"></div>
+    </div>
+  </section>
+
   <!-- ============ LÍNEA DE TIEMPO ============ -->
   <section class="section section--tight" id="timeline">
     <div class="section__head">
       <h2>Nuestra línea de tiempo</h2>
       <p>Filtra los proyectos por semestre para ver cómo ha evolucionado el área.</p>
     </div>
-    <div class="card timeline__intro">
-      <p>
-        La creación del área (2026-1) marca un hito en la transformación digital de la Unidad de
-        Informática, establecido con el propósito de organizar y elevar la calidad de la producción
-        educativa virtual.
-      </p>
-      <p>
-        Su objetivo central es definir lineamientos técnicos y pedagógicos comunes que aseguren la
-        excelencia de los materiales de estudio y mejoren la experiencia de aprendizaje de la comunidad
-        académica.
-      </p>
-      <p>
-        La labor del área se despliega en tres frentes fundamentales: el apoyo a los cursos de extensión
-        de la Facultad, la capacitación del personal administrativo interno y la actualización
-        metodológica de las asignaturas de la Facultad de Ciencias Económicas.
-      </p>
-      <p>
-        Para lograrlo, la dependencia unifica y moderniza procesos clave, tales como el diseño de los
-        cursos, la elaboración de recursos multimedia y la integración de dinámicas interactivas.
-      </p>
-      <p>
-        Esta iniciativa sienta las bases de un modelo de trabajo estructurado y sostenible, diseñado
-        para orientar la labor de los futuros equipos de monitores y garantizar el crecimiento continuo
-        del área en los próximos periodos académicos.
-      </p>
-    </div>
+    <div class="modalcards" id="introModalCards"></div>
     <div class="timeline" id="timelineTrack"></div>
   </section>
 
@@ -221,6 +209,17 @@
 
   <a href="#inicio" class="totop" id="toTop" aria-label="Volver arriba">↑</a>
 
+  <!-- ============ MODAL (tarjetas de introducción) ============ -->
+  <div class="modal" id="introModal" hidden>
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal__close" type="button" data-modal-close aria-label="Cerrar">✕</button>
+      <h3 class="modal__title" id="modalTitle"></h3>
+      <div class="modal__body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="assets/js/motion.js"></script>
   <script src="data.js"></script>
   <script src="script.js"></script>
 </body>
