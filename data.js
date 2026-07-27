@@ -38,7 +38,7 @@ const INTRO_AREA_CARDS = [
   {
     icono: "🎯",
     titulo: "Foco estratégico",
-    texto: "implementar directrices técnicas y pedagógicas transversales. Esta estandarización permite garantizar la alta calidad de los materiales de estudio y maximizar el valor del ecosistema de aprendizaje institucional.",
+    texto: "Implementar directrices técnicas y pedagógicas transversales. Esta estandarización permite garantizar la alta calidad de los materiales de estudio y maximizar el valor del ecosistema de aprendizaje institucional.",
   },
   {
     icono: "🧭",
@@ -129,6 +129,7 @@ const PROYECTOS = [
       "Flujo de 7 etapas de virtualización",
       "Definición de roles (Monitor Máster, Monitores Junior, articulación con otras áreas UIFCE)",
       "Buenas prácticas metodológicas y glosario básico",
+      "<strong>Archivo .md para integrar con inteligencia artificial</strong>",
     ],
     enlaces: {
       documento: "https://docs.google.com/document/d/1d4DcUWD8yY-t4QPceg0EvUQhM8YOXi9bu39DvisUFBc/edit?usp=drive_link",
@@ -362,7 +363,7 @@ const GENIALLY = {
       nombre: "Logo Universidad Interactivo",
       desc: "Creado para colocarlo al inicio de los proyectos.",
       icono: "🏛️",
-      url: "https://view.genially.com/6a32d3272e6b24dfa6a8acce",
+      url: "https://drive.google.com/file/d/1sc0Up1jHa-cmhAWqYCL3588x3c0joYuQ/view?usp=sharing",
     },
     {
       nombre: "Materia FCE · Fundamentos de finanzas",
@@ -627,6 +628,13 @@ const PLANTILLA_ARTICULATE = {
   despues: "assets/plantillas/excel-basico-despues.png",
 };
 
+const GUION_MAESTRO = {
+  icono: "📖",
+  titulo: "Nuevo formato: Guión Maestro",
+  desc: "El documento en el que se justifica, desarrolla y documenta cada curso: la base metodológica y de contenido que sustenta el proyecto antes de pasar a producción en Articulate.",
+  url: "https://docs.google.com/document/d/1aZcZ8aBgISKxA-sPjxUsgzjeaMWXVd799EcVeNoiIdM/edit?usp=sharing",
+};
+
 const COMPARATIVA_2 = {
   antes: "assets/plantillas/comparativa2-antes.png",
   despues: "assets/plantillas/comparativa2-despues.gif",
@@ -651,8 +659,21 @@ const FLUJO_VIRTUALIZACION = [
 ];
 
 const ROLES_VIRTUALIZACION = [
-  { icono: "🧑‍💼", nombre: "Monitor Máster", desc: "Planea, supervisa y coordina el flujo general del área; valida calidad y coherencia de los OVAs." },
-  { icono: "🧑‍💻", nombre: "Monitores Junior", desc: "Desarrollan y producen los recursos: contenidos, interactividad, audiovisuales y documentación." },
+  {
+    rol: "Monitor Máster",
+    desc: "Implementar, diseñar y gestionar la infraestructura virtualizada conforme a los estándares operativos de la Unidad de Informática, asegurando una experiencia de aprendizaje digital continua, segura y eficiente.",
+    integrantes: [
+      { nombre: "Cesar Diaz Suarez", foto: "assets/equipo/cesar-diaz.png", linkedin: "https://www.linkedin.com/in/cesar-steven-diaz-suarez-744b82250" },
+    ],
+  },
+  {
+    rol: "Monitores Junior",
+    desc: "Producir entornos virtuales e-learning optimizando la experiencia educativa y la disponibilidad de los servicios para la comunidad académica.",
+    integrantes: [
+      { nombre: "Ana Sofia Cardozo", foto: "assets/equipo/ana-cardozo.jpg", linkedin: "https://www.linkedin.com/in/ana-sofia-cardozo-castro-9486a9359?utm_source=share_via&utm_content=profile&utm_medium=member_ios" },
+      { nombre: "Juan E. Laguna", foto: "assets/equipo/juan-laguna.jpg", linkedin: "https://www.linkedin.com/in/juan-esteban-laguna-beltrán-312b4829a?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
+    ],
+  },
 ];
 
 const PRACTICAS_VIRTUALIZACION = [

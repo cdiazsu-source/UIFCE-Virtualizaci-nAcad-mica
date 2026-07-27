@@ -248,6 +248,13 @@ function renderPlantillaArticulate() {
   renderCompareSlider("compareSlider", "compareBefore", "compareAfter", "compareHandle", PLANTILLA_ARTICULATE);
   renderCompareSlider("compareSlider2", "compareBefore2", "compareAfter2", "compareHandle2", COMPARATIVA_2);
   renderCompareSlider("compareSlider3", "compareBefore3", "compareAfter3", "compareHandle3", COMPARATIVA_3);
+
+  $("#guionMaestroCard").innerHTML = `
+    <div class="guion-maestro__icono">${GUION_MAESTRO.icono}</div>
+    <h3 class="guion-maestro__titulo">${GUION_MAESTRO.titulo}</h3>
+    <p class="guion-maestro__desc">${GUION_MAESTRO.desc}</p>
+    <a class="linkbtn" href="${GUION_MAESTRO.url}" target="_blank" rel="noopener">Abrir documento ↗</a>
+  `;
 }
 
 function renderCompareSlider(wrapId, beforeId, afterId, handleId, data) {
@@ -293,8 +300,15 @@ function renderGuiaVirtualizacion() {
   const roles = $("#rolesGrid");
   roles.innerHTML = ROLES_VIRTUALIZACION.map(r => `
     <div class="card rol">
-      <div class="rol__icono">${r.icono}</div>
-      <div class="rol__nombre">${r.nombre}</div>
+      <div class="rol__integrantes">
+        ${r.integrantes.map(p => `
+          <a class="rol__persona" href="${p.linkedin}" target="_blank" rel="noopener">
+            <img class="rol__foto" src="${p.foto}" alt="${p.nombre}" />
+            <span class="rol__nombre">${p.nombre}</span>
+          </a>
+        `).join("")}
+      </div>
+      <div class="rol__rol">${r.rol}</div>
       <p class="rol__desc">${r.desc}</p>
     </div>
   `).join("");
@@ -529,17 +543,13 @@ function initNav() {
   }, { passive: true });
 }
 
-/* ---------- Animaciones de aparición (librería Motion) --------------------
-   Se activan cada vez que el usuario ve el elemento (no solo la primera vez):
-   al entrar en pantalla aparece con un leve desplazamiento, al salir se
-   reinicia para poder repetirse la próxima vez que vuelva a la vista.
+/* ---------- Transición de secciones al hacer scroll (librería Motion) -----
+   Cada sección aparece como un solo bloque: fade + leve subida, con una
+   curva suave y algo lenta (estilo cálido/corporativo, sin rebotes). Se
+   activa cada vez que el usuario la ve (no solo la primera vez): al salir
+   de pantalla se reinicia para poder repetirse al volver a verla.
    --------------------------------------------------------------------------- */
-const REVEAL_SELECTOR = [
-  ".section__head", ".hero__content", ".hero__mascot",
-  ".card", ".proj", ".tool", ".guia", ".rol", ".practicav", ".carpeta",
-  ".modalcard", ".orgchart__area", ".flujo__paso", ".glosario__item",
-  ".timeline__item", ".tipo",
-].join(", ");
+const REVEAL_SELECTOR = ".hero, .logoloop-wrap, .section, .footer";
 
 function observeReveal(root = document) {
   if (!window.Motion) return;
@@ -548,12 +558,12 @@ function observeReveal(root = document) {
   if (!targets.length) return;
   targets.forEach(n => { n.dataset.motionBound = "1"; });
   inView(targets, (el) => {
-    animate(el, { opacity: [0, 1], transform: ["translateY(18px)", "translateY(0)"] },
-      { duration: 0.5, easing: [0.22, 1, 0.36, 1] });
+    animate(el, { opacity: [0, 1], transform: ["translateY(28px)", "translateY(0)"] },
+      { duration: 0.75, easing: [0.22, 1, 0.36, 1] });
     return (leave) => {
-      animate(leave.target, { opacity: 0, transform: "translateY(18px)" }, { duration: 0.01 });
+      animate(leave.target, { opacity: 0, transform: "translateY(28px)" }, { duration: 0.01 });
     };
-  }, { margin: "-10% 0px -10% 0px" });
+  }, { margin: "-5% 0px -15% 0px" });
 }
 
 /* ---------- SPLASH CURSOR (fluido WebGL siguiendo el mouse) ----------------
