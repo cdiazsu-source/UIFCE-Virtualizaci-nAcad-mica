@@ -412,6 +412,10 @@ img { max-width: 100%; display: block; }
 /* ---------- GENIALLY ---------- */
 .genially__intro p { color: var(--gris-700); font-size: 1rem; }
 .genially__intro .card__actions { margin-top: 1rem; }
+.genially__gif {
+  display: block; max-width: 640px; width: 100%; margin: 1.8rem auto;
+  border-radius: var(--radio); box-shadow: var(--sombra-lg);
+}
 .tipo { background: #fff; border: 1px solid var(--gris-100); border-radius: var(--radio-sm); padding: 1rem; box-shadow: var(--sombra); }
 .tipo__cat { font-weight: 700; color: var(--azul-osc); margin-bottom: 0.3rem; }
 .recurso__head { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.4rem; }
