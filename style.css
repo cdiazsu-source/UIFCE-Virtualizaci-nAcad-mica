@@ -318,7 +318,7 @@ img { max-width: 100%; display: block; }
 .estado--pendiente  { background: #fde5e5; color: #b32626; }
 .proj__enc { font-size: 0.82rem; color: var(--gris-500); margin: 0.5rem 0; }
 .proj__enc b { color: var(--gris-700); font-weight: 600; }
-.proj__desc { font-size: 0.92rem; color: var(--gris-700); margin-bottom: 0.9rem; }
+.proj__desc { font-size: 0.92rem; color: var(--gris-700); margin-bottom: 0.9rem; text-align: justify; text-justify: inter-word; hyphens: auto; }
 .proj__entregables { list-style: none; margin: 0 0 1rem; padding: 0; }
 .proj__entregables li {
   font-size: 0.85rem; color: var(--gris-700); padding-left: 1.3rem; position: relative;
@@ -326,6 +326,10 @@ img { max-width: 100%; display: block; }
 }
 .proj__entregables li::before {
   content: "✓"; position: absolute; left: 0; color: var(--azul); font-weight: 700;
+}
+.proj__nota {
+  font-size: 0.82rem; color: #a76a00; background: #fff3d6; border-radius: 8px;
+  padding: 0.5rem 0.7rem; margin: 0 0 0.9rem;
 }
 .card__actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; }
 .linkbtn {

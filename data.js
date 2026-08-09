@@ -134,6 +134,10 @@ const PROYECTOS = [
     enlaces: {
       documento: "https://docs.google.com/document/d/1d4DcUWD8yY-t4QPceg0EvUQhM8YOXi9bu39DvisUFBc/edit?usp=drive_link",
     },
+    extras: [
+      { texto: "Archivo .md", icono: "📄", url: "https://drive.google.com/file/d/1oAw5umudGL6QxXRFnd0VqHrX4fTA1Rps/view?usp=drive_link" },
+    ],
+    nota: "Falta definir Marco SMART (\"objetivos EMART\") - KPIs",
   },
   {
     id: "material-existente",
@@ -268,23 +272,27 @@ const PROYECTOS = [
   },
   {
     id: "excel-financiero",
-    nombre: "Virtualización Excel Financiero 1 y 2",
+    nombre: "Excel Complementario para Fundamentos de finanzas",
     semestre: "2026-1",
     estado: "finalizado",
     linea: "EXC",
     icono: "💹",
     encargados: ["Equipo Virtualización"],
     descripcion:
-      "Transformación del proyecto de estudio de Excel Financiero (Fundamentos y Finanzas Avanzadas) en dos cursos implementables en Moodle, con plantillas estandarizadas, banco de preguntas y gamificación con Genially.",
+      "Desarrollado como un Objeto Virtual de Aprendizaje interactivo en Genially, este proyecto tiene un propósito vital: cerrar la brecha entre la teoría académica y la práctica profesional. A través de cinco lecciones progresivas, transforma los modelos teóricos en competencias reales, dotando a los estudiantes de las herramientas en Excel indispensables para liquidar tasas, proyectar amortizaciones y evaluar inversiones en el entorno laboral actual.",
     entregables: [
-      "Cursos listos en Moodle (10h y 12h)",
-      "Plantillas del curso estandarizadas",
-      "Banco de preguntas",
-      "Genially de Fundamentos y Finanzas Avanzadas",
+      "Genially Fundamentos de finanzas",
+      "Borrador guion maestro para articulate",
+      "Esqueleto de 5 Ovas Articulate",
     ],
     enlaces: {
       drive: "https://drive.google.com/drive/folders/1dgYEizB-gPsVvZER1ba8GbuIG0PKVMo6?usp=drive_link",
+      genially: "https://view.genially.com/69a6348c282f94549169b888",
     },
+    extras: [
+      { texto: "Guión maestro", icono: "📝", url: "https://docs.google.com/document/d/1uXxo1PiBYVAbvqla8B6kvkL-AQhsweclgoTS_h2_HgY/edit?usp=sharing" },
+      { texto: "Ova's", icono: "🗂️", url: "https://drive.google.com/drive/folders/1R3WE-_jBPcld6bfuI2kqrmzz640udGLz?usp=drive_link" },
+    ],
   },
   {
     id: "apoyo-posgrado",

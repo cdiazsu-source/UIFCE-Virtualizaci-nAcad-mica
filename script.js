@@ -191,6 +191,7 @@ function renderProyectos() {
       <p class="proj__enc"><b>Encargado:</b> ${(p.encargados || []).join(", ") || "—"}</p>
       <p class="proj__desc">${p.descripcion}</p>
       <ul class="proj__entregables">${entregables}</ul>
+      ${p.nota ? `<p class="proj__nota">⚠️ ${p.nota}</p>` : ""}
     `;
     card.appendChild(linkButtons(p));
     grid.appendChild(card);
