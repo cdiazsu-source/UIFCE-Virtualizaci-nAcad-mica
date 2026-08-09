@@ -23,8 +23,6 @@ const LINK_META = {
 
 /* ---------- HERO + CONTACTO ---------- */
 function renderHero() {
-  $("#heroSemestre").textContent = AREA.semestreActual;
-
   const heroTituloEl = $("#heroTitulo");
   if (typeof createTextType === "function" && AREA.tituloHeroTyping?.length) {
     createTextType(heroTituloEl, {
