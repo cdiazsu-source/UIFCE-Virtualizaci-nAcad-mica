@@ -610,6 +610,8 @@ img { max-width: 100%; display: block; }
 }
 .totop.show { opacity: 1; pointer-events: auto; }
 .totop:hover { transform: translateY(-3px); background: var(--azul-osc); }
+.totop--proyectos { bottom: 4.9rem; background: var(--azul-osc); font-size: 1.05rem; }
+.totop--proyectos:hover { background: var(--azul); }
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 860px) {

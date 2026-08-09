@@ -553,8 +553,11 @@ function initNav() {
   links.addEventListener("click", (e) => { if (e.target.tagName === "A") links.classList.remove("open"); });
 
   const toTop = $("#toTop");
+  const toProyectos = $("#toProyectos");
   window.addEventListener("scroll", () => {
-    toTop.classList.toggle("show", window.scrollY > 500);
+    const visible = window.scrollY > 500;
+    toTop.classList.toggle("show", visible);
+    toProyectos.classList.toggle("show", visible);
   }, { passive: true });
 }
 
