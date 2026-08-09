@@ -22,6 +22,9 @@ const AREA = {
     "Área de Virtualización",
     "Innovación educativa UIFCE",
     "Diseño e-learning con propósito",
+    "Entornos Digitales de Alto Rendimiento",
+    "Ingeniería de Experiencias Neuro-Educativas",
+    "Infraestructura Cognitiva Digital",
   ],
   subtituloHero:
     "Unidad de Informática · Facultad de Ciencias Económicas · Universidad Nacional de Colombia",

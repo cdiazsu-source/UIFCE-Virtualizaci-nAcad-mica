@@ -92,7 +92,7 @@ img { max-width: 100%; display: block; }
 .hero__content { position: relative; z-index: 1; }
 .hero__title {
   font-size: clamp(2.1rem, 5vw, 3.4rem); line-height: 1.14; font-weight: 800;
-  letter-spacing: -0.02em; min-height: calc(1.14em * 2);
+  letter-spacing: -0.02em; min-height: calc(1.14em * 3);
 }
 .hero__title { color: var(--negro); }
 .hero__title .text-type__content {
