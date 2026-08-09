@@ -17,6 +17,12 @@
 const AREA = {
   semestreActual: "2026-1",
   tituloHero: "Área de Virtualización",
+  // Frases que rotan con efecto de máquina de escribir en el título del hero.
+  tituloHeroTyping: [
+    "Área de Virtualización",
+    "Innovación educativa UIFCE",
+    "Diseño e-learning con propósito",
+  ],
   subtituloHero:
     "Unidad de Informática · Facultad de Ciencias Económicas · Universidad Nacional de Colombia",
   descripcionHero: [

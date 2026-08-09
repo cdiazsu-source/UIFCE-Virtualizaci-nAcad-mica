@@ -24,7 +24,23 @@ const LINK_META = {
 /* ---------- HERO + CONTACTO ---------- */
 function renderHero() {
   $("#heroSemestre").textContent = AREA.semestreActual;
-  $("#heroTitulo").textContent   = AREA.tituloHero;
+
+  const heroTituloEl = $("#heroTitulo");
+  if (typeof createTextType === "function" && AREA.tituloHeroTyping?.length) {
+    createTextType(heroTituloEl, {
+      text: AREA.tituloHeroTyping,
+      typingSpeed: 55,
+      deletingSpeed: 28,
+      pauseDuration: 2200,
+      initialDelay: 400,
+      loop: true,
+      showCursor: true,
+      cursorCharacter: "|",
+    });
+  } else {
+    heroTituloEl.textContent = AREA.tituloHero;
+  }
+
   $("#heroSubtitulo").textContent = AREA.subtituloHero;
   $("#heroDesc").innerHTML = AREA.descripcionHero.map(item => `<li>${item}</li>`).join("");
 
