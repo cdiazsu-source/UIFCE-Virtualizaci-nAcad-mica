@@ -30,7 +30,8 @@ const AREA = {
     "Unidad de Informática · Facultad de Ciencias Económicas · Universidad Nacional de Colombia",
   descripcionHero: [
     "Diseño, actualización y estandarización de los contenidos e-learning de la Unidad de Informática y la Facultad de Ciencias Económicas.",
-    "Repositorio centralizado de los recursos, plantillas y lineamientos desarrollados por el área.",
+    "Capacitación y desarrollo tecno-pedagógico docente: formar al profesorado en el uso de herramientas digitales de autor, metodologías e-learning e integración de tecnologías emergentes para sus asignaturas.",
+    "Investigación e innovación EdTech: evaluar e integrar nuevas tecnologías educativas (simuladores de negocios, entornos inmersivos, analíticas de aprendizaje) adaptadas a los programas de la facultad.",
     "Soporte a la continuidad del proceso de empalme entre los sucesivos equipos de monitores.",
   ],
 };
@@ -170,6 +171,25 @@ const PROYECTOS = [
     extras: [
       { texto: "Organización de carpetas", icono: "🗂️", url: "https://drive.google.com/drive/folders/1C44YCShWIBv5o6pMvCs9CHV1DB0_fyGO?usp=drive_link" },
       { texto: "Ver mapa de carpetas", icono: "🗺️", url: "#carpetas" },
+    ],
+  },
+  {
+    id: "repositorio-plantillas",
+    nombre: "Repositorio Centralizado de Recursos y Plantillas",
+    semestre: "2026-1",
+    estado: "finalizado",
+    icono: "🗂️",
+    encargados: ["Equipo Virtualización"],
+    descripcion:
+      "Repositorio centralizado de los recursos, plantillas y lineamientos desarrollados por el área, con acceso directo a las plantillas maestras vigentes —como la nueva plantilla de Articulate 360— para agilizar la producción de nuevos cursos.",
+    entregables: [
+      "Repositorio centralizado de recursos y plantillas reutilizables",
+      "Lineamientos de uso y organización del material",
+    ],
+    enlaces: {},
+    extras: [
+      { texto: "Carpeta", icono: "📁", url: "https://drive.google.com/drive/folders/1MrwEyYRh3NTnTupNoFknyuhSfjI4qAV8?usp=drive_link" },
+      { texto: "Nueva plantilla Articulate 360", icono: "🗂️", url: "#plantilla-articulate" },
     ],
   },
   {
