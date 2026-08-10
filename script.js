@@ -218,6 +218,27 @@ function renderProyectos() {
   observeReveal();
 }
 
+/* ---------- RESULTADOS DEL SEMESTRE (KPIs) ---------- */
+function renderKpis() {
+  $("#kpisIntro").textContent = KPIS.intro;
+  $("#kpisNota").innerHTML = `📈 ${KPIS.nota}`;
+
+  $("#kpisStats").innerHTML = KPIS.stats.map(s => `
+    <div class="kpi-tile">
+      <div class="kpi-tile__valor">${s.valor}</div>
+      <div class="kpi-tile__etiqueta">${s.etiqueta}</div>
+      <div class="kpi-tile__detalle">${s.detalle}</div>
+    </div>
+  `).join("");
+
+  $("#kpisDetalle").innerHTML = KPIS.detalle.map(grupo => `
+    <div class="kpi-col">
+      <h3 class="subhead">${grupo.titulo}</h3>
+      <ul class="kpi-col__lista">${grupo.items.map(i => `<li>${i}</li>`).join("")}</ul>
+    </div>
+  `).join("");
+}
+
 function initFiltros() {
   $("#filtrosEstado").addEventListener("click", (e) => {
     const chip = e.target.closest(".chip");
@@ -1602,6 +1623,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderTimeline();
   initFiltros();
   renderProyectos();
+  renderKpis();
   renderGuiaVirtualizacion();
   renderGenially();
   renderPlantillaArticulate();

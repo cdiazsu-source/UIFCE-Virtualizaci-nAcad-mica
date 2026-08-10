@@ -147,7 +147,6 @@ const PROYECTOS = [
     extras: [
       { texto: "Archivo .md", icono: "📄", url: "https://drive.google.com/file/d/1oAw5umudGL6QxXRFnd0VqHrX4fTA1Rps/view?usp=drive_link" },
     ],
-    nota: "Falta definir Marco SMART (\"objetivos EMART\") - KPIs",
   },
   {
     id: "material-existente",
@@ -203,10 +202,12 @@ const PROYECTOS = [
       "Se consolida el modelo de producción e-learning del área mediante la integración del Ecosistema de Plantillas e-Learning (Articulate 360 y Genially) y la implementación del Guion Maestro. Mientras el ecosistema garantiza la estandarización gráfica e interactiva, el guion permite justificar, proyectar y estructurar textualmente cada curso lección por lección. En conjunto, optimizan los tiempos de desarrollo, aseguran la calidad pedagógica y facilitan la futura reproducción, revisión y escalabilidad de los contenidos.",
     entregables: [
       "Documento que explica la estructura del Guion Maestro",
+      "<strong>Archivo .md para integrar con inteligencia artificial</strong>",
     ],
     enlaces: {},
     extras: [
-      { texto: "Guía Maestra", icono: "📜" },
+      { texto: "Guía Maestra", icono: "📜", url: "https://docs.google.com/document/d/1gt2yFU8PNjaHQ7heDK3yGi3O3UrNH-DxCiqIux9LQpw/edit?usp=sharing" },
+      { texto: "Archivo .md", icono: "📄", url: "file:///C:/Users/idieg/Downloads/VA_CONTEXTO_GuionMaestro_IA_vFINAL.md" },
     ],
   },
   {
@@ -389,6 +390,40 @@ const PROYECTOS = [
     },
   },
 ];
+
+/* --------------------------------------------------------------------------
+   3b. RESULTADOS DEL SEMESTRE (KPIs para presentar el avance del área)
+   -------------------------------------------------------------------------- */
+const KPIS = {
+  intro: "Resultados del semestre 2026-1, primer semestre de operación formal del área.",
+  stats: [
+    { valor: "13", etiqueta: "Iniciativas ejecutadas", detalle: "100% finalizadas en el semestre 2026-1" },
+    { valor: "9", etiqueta: "Piezas de contenido académico", detalle: "Cursos nuevos, actualizados y esquemas" },
+    { valor: "5", etiqueta: "Herramientas estandarizadas", detalle: "Articulate 360, Genially, Excel, Python/R, Moodle" },
+    { valor: "4", etiqueta: "Proyectos de apoyo institucional", detalle: "A la Unidad de Informática" },
+  ],
+  detalle: [
+    {
+      titulo: "Producción académica",
+      items: [
+        "Nuevas virtualizaciones en Genially: Fundamentos en Finanzas, Finanzas Avanzadas, Informática Aplicada para la Gestión e Información, Ecosistema de Plantillas",
+        "Actualizaciones: Excel Básico, Excel Intermedio",
+        "Esquemas y guiones maestros: Excel Financiero 1 y 2",
+        "Articulate 360: Introducción a la Programación en Python y R",
+      ],
+    },
+    {
+      titulo: "Apoyo institucional a la Unidad de Informática",
+      items: [
+        "Virtualización de UIFCito (Estrategias tecnológicas)",
+        "Despliegue del catálogo de solicitud de apoyos académicos (Desarrollo)",
+        "Apoyo académico en virtualización de proyecto de grado (Apoyos académicos)",
+        "Actualización de plantillas antiguas (Cursos libres)",
+      ],
+    },
+  ],
+  nota: "Antes de la estandarización del área, virtualizar un solo curso tomaba en promedio 4 semestres. En este semestre (2026-1) el equipo entregó 9 piezas de contenido académico y 4 proyectos de apoyo institucional — todo en un único semestre.",
+};
 
 /* --------------------------------------------------------------------------
    4. EMPALME GENIALLY (resumen del manual de uso)

@@ -164,6 +164,41 @@ img { max-width: 100%; display: block; }
   padding-left: 0.7rem; border-left: 4px solid var(--azul);
 }
 
+/* ---------- RESULTADOS DEL SEMESTRE (KPIs) ---------- */
+.kpis__stats {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem; margin-bottom: 2rem;
+}
+.kpi-tile {
+  background: var(--card); border: 1px solid var(--gris-100); border-radius: var(--radio);
+  padding: 1.5rem 1.3rem; box-shadow: var(--sombra); text-align: center;
+  transition: transform .18s, box-shadow .2s;
+}
+.kpi-tile:hover { transform: translateY(-4px); box-shadow: var(--sombra-lg); }
+.kpi-tile__valor {
+  font-size: clamp(2.2rem, 4vw, 2.8rem); font-weight: 800; line-height: 1;
+  background: linear-gradient(100deg, var(--azul-osc), var(--azul), var(--cian));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.kpi-tile__etiqueta { font-weight: 700; color: var(--negro); margin-top: 0.5rem; }
+.kpi-tile__detalle { font-size: 0.85rem; color: var(--gris-500); margin-top: 0.3rem; }
+
+.kpis__nota {
+  max-width: 780px; margin: 0 auto 2.2rem; text-align: center;
+  color: var(--azul-osc); font-weight: 600; font-size: 0.98rem; line-height: 1.6;
+  background: var(--azul-claro); border-radius: var(--radio-sm); padding: 1rem 1.4rem;
+}
+
+.kpis__detalle {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;
+}
+.kpi-col__lista { list-style: none; margin: 0; padding: 0; }
+.kpi-col__lista li {
+  font-size: 0.92rem; color: var(--gris-700); padding-left: 1.2rem; position: relative;
+  margin-bottom: 0.55rem; line-height: 1.5;
+}
+.kpi-col__lista li::before { content: "✓"; position: absolute; left: 0; color: var(--verde-unal); font-weight: 800; }
+
 /* ---------- LOGO LOOP (herramientas recomendadas) ---------- */
 .logoloop-wrap { max-width: var(--max); margin: 0 auto; padding: 0 clamp(1rem, 4vw, 2rem) 2rem; }
 .logoloop { position: relative; overflow: hidden; --logoloop-gap: 40px; }
