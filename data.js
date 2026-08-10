@@ -133,10 +133,10 @@ const PROYECTOS = [
     icono: "🚀",
     encargados: ["Equipo Virtualización"],
     descripcion:
-      "Documento de referencia introductorio para el área de Virtualización Académica: explica el porqué del área, su filosofía de trabajo, el flujo de 7 etapas para virtualizar un curso, la estructura del Guion Maestro, los roles del equipo y las buenas prácticas metodológicas. Es el punto de entrada obligatorio para cualquier persona que se integre al área.",
+      "Documento de referencia introductorio para el área de Virtualización Académica: explica el porqué del área, su filosofía de trabajo, el flujo de 9 etapas para virtualizar un curso, la estructura del Guion Maestro, los roles del equipo y las buenas prácticas metodológicas. Es el punto de entrada obligatorio para cualquier persona que se integre al área.",
     entregables: [
       "Guía completa de primeros pasos (documento maestro)",
-      "Flujo de 7 etapas de virtualización",
+      "Flujo de 9 etapas de virtualización",
       "Definición de roles (Monitor Máster, Monitores Junior, articulación con otras áreas UIFCE)",
       "Buenas prácticas metodológicas y glosario básico",
       "<strong>Archivo .md para integrar con inteligencia artificial</strong>",
@@ -222,7 +222,7 @@ const PROYECTOS = [
     enlaces: {},
     extras: [
       { texto: "Guión Maestro", icono: "📜" },
-      { texto: "Genially", icono: "✨" },
+      { texto: "Genially", icono: "✨", url: "https://view.genially.com/69ebc91cd98ab7d033240be1" },
     ],
   },
   {
@@ -400,7 +400,7 @@ const KPIS = {
     { valor: "13", etiqueta: "Iniciativas ejecutadas", detalle: "100% finalizadas en el semestre 2026-1" },
     { valor: "9", etiqueta: "Piezas de contenido académico", detalle: "Cursos nuevos, actualizados y esquemas" },
     { valor: "5", etiqueta: "Herramientas estandarizadas", detalle: "Articulate 360, Genially, Excel, Python/R, Moodle" },
-    { valor: "4", etiqueta: "Proyectos de apoyo institucional", detalle: "A la Unidad de Informática" },
+    { valor: "5", etiqueta: "Proyectos de apoyo institucional", detalle: "A la Unidad de Informática" },
   ],
   detalle: [
     {
@@ -419,10 +419,11 @@ const KPIS = {
         "Despliegue del catálogo de solicitud de apoyos académicos (Desarrollo)",
         "Apoyo académico en virtualización de proyecto de grado (Apoyos académicos)",
         "Actualización de plantillas antiguas (Cursos libres)",
+        "Despliegue del dominio y su organización de carpetas para Virtualización (Gestión del conocimiento)",
       ],
     },
   ],
-  nota: "Antes de la estandarización del área, virtualizar un solo curso tomaba en promedio 4 semestres. En este semestre (2026-1) el equipo entregó 9 piezas de contenido académico y 4 proyectos de apoyo institucional — todo en un único semestre.",
+  nota: "Antes de la estandarización del área, virtualizar un solo curso tomaba en promedio 4 semestres. En este semestre (2026-1) el equipo entregó 9 piezas de contenido académico y 5 proyectos de apoyo institucional — todo en un único semestre.",
 };
 
 /* --------------------------------------------------------------------------
@@ -754,13 +755,15 @@ const COMPARATIVA_3 = {
    6b. GUÍA DE VIRTUALIZACIÓN (resumen visual de la Guía de Primeros Pasos)
    -------------------------------------------------------------------------- */
 const FLUJO_VIRTUALIZACION = [
-  { icono: "📥", nombre: "Recepción y organización", desc: "Se reciben los insumos del docente: syllabus, presentaciones, bibliografía y ejercicios." },
-  { icono: "🧭", nombre: "Estructuración pedagógica", desc: "Se define la organización del curso: módulos, secuencia de aprendizaje y recursos necesarios." },
-  { icono: "🎬", nombre: "Producción multimedia", desc: "Se elaboran guiones, narraciones, videos y recursos gráficos de apoyo." },
-  { icono: "🧩", nombre: "Desarrollo interactivo", desc: "Se monta el contenido en Articulate 360: narraciones, botones, interacciones y evaluaciones." },
+  { icono: "📥", nombre: "Recepción de insumos", desc: "El docente entrega el syllabus, las diapositivas y el material de apoyo (ej. documento de Excel) del curso." },
+  { icono: "🗂️", nombre: "Organización", desc: "El equipo organiza y depura el material recibido." },
+  { icono: "📜", nombre: "Estructuración del Guión Maestro", desc: "Con apoyo de inteligencia artificial, se redacta un boceto inicial del Guion Maestro: módulos, secuencia y contenido por lección." },
+  { icono: "✨", nombre: "Virtualización interactiva en Genially", desc: "Se desarrollan las clases o temas del curso de forma interactiva en Genially." },
+  { icono: "📐", nombre: "Plantilla de Guión Maestro para Articulate", desc: "Con lo desarrollado en Genially, se organiza el material y se consolida la plantilla definitiva del Guion Maestro que alimentará Articulate." },
+  { icono: "🎬", nombre: "Producción audiovisual y materiales didácticos", desc: "Se elaboran videos, narraciones y demás recursos gráficos y didácticos de apoyo." },
+  { icono: "🧩", nombre: "Virtualización en Articulate 360", desc: "Con la plantilla consolidada, se monta el curso completo: interacciones, narraciones y evaluaciones." },
   { icono: "🔍", nombre: "Revisión y ajustes", desc: "Se valida funcionamiento, ortografía, consistencia visual y navegación antes de publicar." },
-  { icono: "📦", nombre: "Exportación", desc: "Se generan los entregables finales, generalmente en formato SCORM." },
-  { icono: "🚀", nombre: "Implementación y despliegue", desc: "Se carga el recurso en Moodle y se valida su acceso y funcionamiento." },
+  { icono: "🚀", nombre: "Exportación e implementación", desc: "Se generan los entregables (SCORM) y se despliegan en Moodle." },
 ];
 
 const ROLES_VIRTUALIZACION = [

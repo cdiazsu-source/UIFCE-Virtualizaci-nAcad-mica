@@ -330,6 +330,7 @@ function initCompareSlider(wrapId, beforeId, handleId) {
 function renderGuiaVirtualizacion() {
   const flujo = $("#flujoGrid");
   flujo.innerHTML = FLUJO_VIRTUALIZACION.map((paso, i) => `
+    ${i > 0 ? `<div class="flujo__arrow" aria-hidden="true">→</div>` : ""}
     <div class="flujo__paso">
       <div class="flujo__numero">${i + 1}</div>
       <div class="flujo__icono">${paso.icono}</div>
