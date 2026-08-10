@@ -175,21 +175,53 @@ const PROYECTOS = [
   },
   {
     id: "repositorio-plantillas",
-    nombre: "Repositorio Centralizado de Recursos y Plantillas",
+    nombre: "Ecosistema de Plantillas e-Learning",
     semestre: "2026-1",
     estado: "finalizado",
     icono: "🗂️",
     encargados: ["Equipo Virtualización"],
     descripcion:
-      "Repositorio centralizado de los recursos, plantillas y lineamientos desarrollados por el área, con acceso directo a las plantillas maestras vigentes —como la nueva plantilla de Articulate 360— para agilizar la producción de nuevos cursos.",
+      "El núcleo estratégico donde convergen el diseño pedagógico y la tecnología educativa de la organización. Al integrar las estructuras base actualizadas de Articulate 360 y Genially, este entorno unifica los recursos gráficos e interactivos bajo un mismo estándar, asegurando que cada curso responda de forma directa a las metodologías y objetivos del área.",
     entregables: [
-      "Repositorio centralizado de recursos y plantillas reutilizables",
-      "Lineamientos de uso y organización del material",
+      "Plantilla Articulate 360 (Interactiva)",
+      "Plantilla Genially (Navegable)",
     ],
     enlaces: {},
     extras: [
       { texto: "Carpeta", icono: "📁", url: "https://drive.google.com/drive/folders/1MrwEyYRh3NTnTupNoFknyuhSfjI4qAV8?usp=drive_link" },
       { texto: "Nueva plantilla Articulate 360", icono: "🗂️", url: "#plantilla-articulate" },
+    ],
+  },
+  {
+    id: "guion-maestro-formato",
+    nombre: "Formato Guion Maestro e-Learning",
+    semestre: "2026-1",
+    estado: "finalizado",
+    icono: "📜",
+    encargados: ["Equipo Virtualización"],
+    descripcion:
+      "Se consolida el modelo de producción e-learning del área mediante la integración del Ecosistema de Plantillas e-Learning (Articulate 360 y Genially) y la implementación del Guion Maestro. Mientras el ecosistema garantiza la estandarización gráfica e interactiva, el guion permite justificar, proyectar y estructurar textualmente cada curso lección por lección. En conjunto, optimizan los tiempos de desarrollo, aseguran la calidad pedagógica y facilitan la futura reproducción, revisión y escalabilidad de los contenidos.",
+    entregables: [
+      "Documento que explica la estructura del Guion Maestro",
+    ],
+    enlaces: {},
+    extras: [
+      { texto: "Guía Maestra", icono: "📜" },
+    ],
+  },
+  {
+    id: "piloto-contabilidad-gestion",
+    nombre: "Proyecto Piloto e-Learning: Virtualización \"Contabilidad de Gestión Avanzada\"",
+    semestre: "2026-1",
+    estado: "finalizado",
+    icono: "🧮",
+    encargados: ["Equipo Virtualización"],
+    descripcion:
+      "Proyecto pionero en la producción digital del área al transformar la asignatura del Vicedecano en una experiencia interactiva desarrollada en Genially. Como primera prueba de concepto, este proyecto permitió implementar y validar el Guion Maestro, detallando textualmente cada lección para asegurar la calidad pedagógica y facilitar su futura actualización. Más que la entrega de un curso finalizado, esta iniciativa sirvió como el diagnóstico técnico e insumo estratégico para identificar las necesidades del área y consolidar el estándar de virtualización para la facultad.",
+    enlaces: {},
+    extras: [
+      { texto: "Guión Maestro", icono: "📜" },
+      { texto: "Genially", icono: "✨" },
     ],
   },
   {

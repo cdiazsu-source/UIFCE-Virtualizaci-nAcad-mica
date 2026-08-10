@@ -167,11 +167,16 @@ function linkButtons(proyecto) {
   });
   // Botones personalizados (extras)
   (proyecto.extras || []).forEach(x => {
-    if (!x.url) return;
-    const a = el("a", "linkbtn", `${x.icono || "🔗"} ${x.texto}`);
-    a.href = x.url;
-    if (!x.url.startsWith("#")) { a.target = "_blank"; a.rel = "noopener"; }
-    wrap.appendChild(a);
+    if (x.url) {
+      const a = el("a", "linkbtn", `${x.icono || "🔗"} ${x.texto}`);
+      a.href = x.url;
+      if (!x.url.startsWith("#")) { a.target = "_blank"; a.rel = "noopener"; }
+      wrap.appendChild(a);
+    } else {
+      const b = el("span", "linkbtn linkbtn--off", `${x.icono || "🔗"} ${x.texto}`);
+      b.title = "Enlace pendiente por agregar en data.js";
+      wrap.appendChild(b);
+    }
   });
   return wrap;
 }
